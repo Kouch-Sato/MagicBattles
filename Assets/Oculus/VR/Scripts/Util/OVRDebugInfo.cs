@@ -119,7 +119,7 @@ public class OVRDebugInfo : MonoBehaviour
         if (showVRVars)
         {
             debugUIManager.SetActive(true);
-            UpdateVariable();
+            // UpdateVariable();
             UpdateStrings();
         }
         else
