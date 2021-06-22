@@ -8,6 +8,8 @@ public class EnemyManager : MonoBehaviour
     public int maxHP;
     int hp;
 
+    public Collider weaponCollider;
+
     Transform target;
     NavMeshAgent agent;
     Animator animator;
@@ -20,6 +22,8 @@ public class EnemyManager : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.destination = target.position;
         animator = GetComponent<Animator>();
+
+        // HideColliderWeapon();
     }
 
     // Update is called once per frame
@@ -31,6 +35,7 @@ public class EnemyManager : MonoBehaviour
 
     public void GetDamage(int damage)
     {
+        animator.SetTrigger("GetHit");
         hp -= damage;
         Debug.Log("HP:" + hp);
 
@@ -43,6 +48,17 @@ public class EnemyManager : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        animator.SetTrigger("Die");
+        Destroy(gameObject, 2f);
+    }
+
+    public void ShowColliderWeapon()
+    {
+        weaponCollider.enabled = true;
+    }
+
+    public void HideColliderWeapon()
+    {
+        weaponCollider.enabled = false;
     }
 }
