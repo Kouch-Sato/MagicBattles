@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyManager : MonoBehaviour
 {
     public int maxHP;
-    int hp;
+    int HP;
 
     public Collider weaponCollider;
 
@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hp = maxHP;
+        HP = maxHP;
         target = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         agent.destination = target.position;
@@ -36,12 +36,11 @@ public class EnemyManager : MonoBehaviour
     public void GetDamage(int damage)
     {
         animator.SetTrigger("GetHit");
-        hp -= damage;
-        Debug.Log("HP:" + hp);
+        HP -= damage;
 
-        if (hp < 0)
+        if (HP < 0)
         {
-            hp = 0;
+            HP = 0;
             Die();
         }
     }
