@@ -23,7 +23,7 @@ public class EnemyManager : MonoBehaviour
         agent.destination = target.position;
         animator = GetComponent<Animator>();
 
-        // HideColliderWeapon();
+        HideColliderWeapon();
     }
 
     // Update is called once per frame
