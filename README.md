@@ -57,3 +57,8 @@ https://framesynthesis.jp/tech/unity/oculusquest/#%E3%83%93%E3%83%AB%E3%83%89%E8
 - ▲ Player > Other Settings > Optimaization > Prebake Collision Meshes => もしapkファイルの大きさが問題でなければ選択.（一旦選択無しで良さそう）
 - ▲ 上記 > Keep Loaded Shaders Alive => If compiling shaders on demand is an issue, check this box.
 - ▲ techblogのaudio周り、Quality周り、Graphics周り
+
+# その他
+- Assets/Oculus/SampleFramework/Usage/AppDeeplink/AppDeeplinkUI.cs
+ファイルは、コンパイル時に以下のエラーが発生するため全文コメントアウト中
+AppDeeplinkUI.cs(37,18): error CS0103: The name 'Oculus' does not exist in the current context
