@@ -34,6 +34,6 @@ public class PlayerManager : MonoBehaviour
     {
         HP -= damage;
         Debug.Log(HP);
-        playerUIManager.UpdateHP(HP);
+        playerUIManager.GetDamage(HP);
     }
 }
