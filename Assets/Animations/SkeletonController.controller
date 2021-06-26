@@ -37,6 +37,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18cf50b372a2448efacb1a44d3cb99c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6972807601751807167
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2839dadb2f85f4332a103c68835ae267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1102 &-6048759169444584641
 AnimatorState:
   serializedVersion: 6
@@ -49,7 +61,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4576483150552767290}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -6972807601751807167}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -123,7 +136,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3000214630315889452}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -944057730915917867}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -275,6 +289,18 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-944057730915917867
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cca49d856a94648ac7eb4bdd23cf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1102 &-903838696615557193
 AnimatorState:
   serializedVersion: 6
@@ -364,7 +390,7 @@ AnimatorStateMachine:
     m_Position: {x: 100, y: -150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5325133832904210148}
-    m_Position: {x: 590, y: 70, z: 0}
+    m_Position: {x: 660, y: -90, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -3926674345117956539}

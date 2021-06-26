@@ -13,6 +13,7 @@ public class PlayerUIManager : MonoBehaviour
     {
         hpSlider.maxValue = playerManager.maxHP;
         hpSlider.value = playerManager.maxHP;
+        damageImage.enabled = true;
         damageImage.color = Color.clear;
     }
 
