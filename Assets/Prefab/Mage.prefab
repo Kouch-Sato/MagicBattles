@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 4991100986247449040}
   - component: {fileID: 6929499524544797970}
   - component: {fileID: 3594632966124802959}
+  - component: {fileID: 3620262682221677842}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -687,6 +688,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75c8aed0fed14bacb093d8e8627ff36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magicPrefab: {fileID: 130552, guid: 2c2a183ad8a070b4ca24f54daad8b2da, type: 3}
+  timeOut: 2
+--- !u!136 &3620262682221677842
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905725972557159404}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5798855
+  m_Height: 1.9037075
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.6780348, z: 0.07988548}
 --- !u!1 &4905731903574976474
 GameObject:
   m_ObjectHideFlags: 0
