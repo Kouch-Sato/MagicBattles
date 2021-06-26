@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public int maxHP = 1000;
-    int hp;
+    int HP;
+    public PlayerUIManager playerUIManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        hp = maxHP;
+        HP = maxHP;
+        playerUIManager.Init(this);
     }
 
     // Update is called once per frame
@@ -20,6 +22,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        Debug.Log(1223);
         Damager damager = other.GetComponent<Damager>();
         if (damager)
         {
@@ -27,8 +30,10 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-     void GetDamage(int damage)
-     {
-         hp -= damage;
-     }
+    void GetDamage(int damage)
+    {
+        HP -= damage;
+        Debug.Log(HP);
+        playerUIManager.GetDamage(HP);
+    }
 }
