@@ -22,7 +22,6 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log(1223);
         Damager damager = other.GetComponent<Damager>();
         if (damager)
         {
