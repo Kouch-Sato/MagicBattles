@@ -5,6 +5,7 @@ using UnityEngine;
 public class MageManager : MonoBehaviour
 {
     Transform target;
+    Animator animator;
     public GameObject magicPrefab;
 
     public float timeOut = 5;
@@ -14,13 +15,15 @@ public class MageManager : MonoBehaviour
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeElapsed += Time.deltaTime;
+        this.transform.LookAt(target.position);
 
+        timeElapsed += Time.deltaTime;
         if(timeElapsed >= timeOut) {
             Attack();
 
@@ -30,9 +33,9 @@ public class MageManager : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log(111);
+        animator.SetTrigger("Attack");
         GameObject magicGameObject = Instantiate(magicPrefab, transform.position, transform.rotation) as GameObject;
         magicGameObject.transform.LookAt(target.position);
-        magicGameObject.GetComponent<Rigidbody>().AddForce(magicGameObject.transform.forward * 1000);
+        magicGameObject.GetComponent<Rigidbody>().AddForce(magicGameObject.transform.forward * 2000);
   }
 }
