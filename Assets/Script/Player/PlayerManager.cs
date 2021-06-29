@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    void GetDamage(int damage)
+    public void GetDamage(int damage)
     {
         HP -= damage;
         Debug.Log(HP);

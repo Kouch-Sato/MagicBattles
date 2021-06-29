@@ -291,7 +291,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.47, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5913,6 +5913,10 @@ PrefabInstance:
       propertyPath: timeOut
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3594632966124802959, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
+      propertyPath: magicPrefab
+      value: 
+      objectReference: {fileID: 100006, guid: e08544da84c22f444b58b5d10dac497a, type: 3}
     - target: {fileID: 4905725972557159404, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
       propertyPath: m_Name
       value: Mage
@@ -8735,7 +8739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1149374737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13752,7 +13756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1796570355
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16741,7 +16745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10afb12cb1bad4deb8c24fa4871a64dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magicPrefab: {fileID: 100008, guid: d452c87524dea094eb2d3e18552f06a8, type: 3}
+  magicPrefab: {fileID: 100008, guid: 16f6c460a8e0b449a8c106292988bb84, type: 3}
 --- !u!1 &1916243786846311060
 GameObject:
   m_ObjectHideFlags: 0

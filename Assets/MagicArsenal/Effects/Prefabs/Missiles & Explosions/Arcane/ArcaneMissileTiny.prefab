@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 8253770}
   - component: {fileID: 19977234}
   - component: {fileID: 19829940}
-  - component: {fileID: 2725996440123016633}
+  - component: {fileID: 146758129233002142}
   m_Layer: 0
   m_Name: ArcaneMissileTiny
   m_TagString: Untagged
@@ -4991,22 +4991,20 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!54 &2725996440123016633
-Rigidbody:
+--- !u!114 &146758129233002142
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130552}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d90a4d6d8da741849e0ce5b838b2717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 0}
+  damage: 100
 --- !u!1 &168254
 GameObject:
   m_ObjectHideFlags: 0

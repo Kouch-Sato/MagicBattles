@@ -5,6 +5,7 @@ using UnityEngine;
 public class MageManager : MonoBehaviour
 {
     Transform target;
+    public Transform weapon;
     Animator animator;
     public GameObject magicPrefab;
 
@@ -25,17 +26,16 @@ public class MageManager : MonoBehaviour
 
         timeElapsed += Time.deltaTime;
         if(timeElapsed >= timeOut) {
-            Attack();
+            animator.SetTrigger("Attack");
 
             timeElapsed = 0.0f;
         }
     }
 
-    private void Attack()
+    public void Attack()
     {
-        animator.SetTrigger("Attack");
-        GameObject magicGameObject = Instantiate(magicPrefab, transform.position, transform.rotation) as GameObject;
+        GameObject magicGameObject = Instantiate(magicPrefab, weapon.position, weapon.rotation) as GameObject;
         magicGameObject.transform.LookAt(target.position);
         magicGameObject.GetComponent<Rigidbody>().AddForce(magicGameObject.transform.forward * 2000);
-  }
+    }
 }
