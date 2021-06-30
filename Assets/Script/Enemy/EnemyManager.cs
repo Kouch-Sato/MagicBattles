@@ -7,13 +7,17 @@ public class EnemyManager : MonoBehaviour
     public int maxHP;
     int HP;
 
+    bool isDie = false;
+
     Animator animator;
+    GameObject ingameSceneManager;
 
     // Start is called before the first frame update
     void Start()
     {
         HP = maxHP;
         animator = GetComponent<Animator>();
+        ingameSceneManager = GameObject.Find("IngameSceneManager");
     }
 
     // Update is called once per frame
@@ -24,10 +28,15 @@ public class EnemyManager : MonoBehaviour
 
     public void GetDamage(int damage)
     {
+        if ( isDie )
+        {
+            return;
+        }
+
         animator.SetTrigger("GetHit");
         HP -= damage;
 
-        if (HP < 0)
+        if ( HP <= 0 )
         {
             HP = 0;
             Die();
@@ -37,6 +46,8 @@ public class EnemyManager : MonoBehaviour
     void Die()
     {
         animator.SetTrigger("Die");
+        isDie = true;
         Destroy(gameObject, 2f);
+        ingameSceneManager.GetComponent<IngameSceneManager>().enemyCount -= 1;
     }
 }
