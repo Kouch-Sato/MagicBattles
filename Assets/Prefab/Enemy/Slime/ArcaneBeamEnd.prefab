@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4242107551609138335}
   - component: {fileID: 170069828367270100}
   m_Layer: 0
-  m_Name: Org_ArcaneBeamEnd
+  m_Name: ArcaneBeamEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

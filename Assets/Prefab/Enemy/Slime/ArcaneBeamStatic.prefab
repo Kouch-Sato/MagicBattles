@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 467536}
   - component: {fileID: 11433970}
   m_Layer: 0
-  m_Name: Org_ArcaneBeamStatic
+  m_Name: ArcaneBeamStatic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

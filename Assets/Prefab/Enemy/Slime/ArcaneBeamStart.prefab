@@ -14218,7 +14218,7 @@ GameObject:
   - component: {fileID: 19954534}
   - component: {fileID: 8257788}
   m_Layer: 0
-  m_Name: Org_ArcaneBeamStart
+  m_Name: ArcaneBeamStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
