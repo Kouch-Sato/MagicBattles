@@ -13,4 +13,11 @@ public class LobbySceneManager : MonoBehaviour
         var sceneName = buttonObject.GetComponent<LobbyButtonManager>().targetStageName;
         SceneManager.LoadScene(sceneName);
     }
+
+    public void OnClickResetButton()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("Lobby");
+    }
 }
