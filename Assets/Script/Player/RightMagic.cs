@@ -25,7 +25,6 @@ public class RightMagic : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
         {
             Attack();
-            RainAttack();
         }
 
         if (Input.GetKeyDown(KeyCode.K))
