@@ -20,4 +20,11 @@ public class LobbySceneManager : MonoBehaviour
         PlayerPrefs.Save();
         SceneManager.LoadScene("Lobby");
     }
+
+    public void OnClickCompleteButton()
+    {
+        PlayerPrefs.SetInt("PLAYER_LEVEL", 10);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("Lobby");
+    }
 }
