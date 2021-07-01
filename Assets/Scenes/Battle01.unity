@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8370,6 +8370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVRPlayerController
       objectReference: {fileID: 0}
+    - target: {fileID: 7312121489699537548, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
+      propertyPath: OVRPlayerController
+      value: 
+      objectReference: {fileID: 1566037874}
     - target: {fileID: 9218302656234288414, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -11760,6 +11764,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4252784401376168, guid: 22a3fd8d3e59a1149bdcd775c0e87241, type: 3}
   m_PrefabInstance: {fileID: 1564430843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1566037874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7312121489448639949, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
+  m_PrefabInstance: {fileID: 1102785879}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1576444697
 PrefabInstance:

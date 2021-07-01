@@ -6,6 +6,7 @@ public class RightMagic : MonoBehaviour
 {
     public GameObject magicPrefab;
     public GameObject rainMagicPrefab;
+    public GameObject OVRPlayerController;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,11 @@ public class RightMagic : MonoBehaviour
         {
             RainAttack();
         }
+
+        if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
+        {
+            RainAttack();
+        }
     }
 
     private void Attack()
@@ -41,7 +47,8 @@ public class RightMagic : MonoBehaviour
 
     private void RainAttack()
     {
-        Instantiate(rainMagicPrefab, transform.position, transform.rotation);
+        Instantiate(rainMagicPrefab, OVRPlayerController.transform.position + new Vector3(0, -1.0f, 0), Quaternion.Euler(-90, 0, 0));
+        // Instantiate(rainMagicPrefab);
         Debug.Log(11111);
     }
 }

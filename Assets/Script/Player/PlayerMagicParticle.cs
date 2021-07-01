@@ -26,7 +26,7 @@ public class PlayerMagicParticle : MonoBehaviour
             return;
         }
 
-        Destroy(gameObject);
+        // Destroy(gameObject);
         Instantiate(explosionPrefab, transform.position, transform.rotation);
 
         if (other.tag == "Enemy")

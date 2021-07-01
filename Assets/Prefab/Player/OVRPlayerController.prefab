@@ -19989,6 +19989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicPrefab: {fileID: 100008, guid: 0bf91128341a4420bbe84d66512b9b43, type: 3}
   rainMagicPrefab: {fileID: 138484, guid: 98cf95f6bedfd4f98aac3002bb6a3881, type: 3}
+  OVRPlayerController: {fileID: 7312121489448639949}
 --- !u!1 &7312783184157212059
 GameObject:
   m_ObjectHideFlags: 0
