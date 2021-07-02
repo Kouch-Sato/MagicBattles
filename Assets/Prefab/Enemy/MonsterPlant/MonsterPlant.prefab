@@ -748,6 +748,7 @@ GameObject:
   - component: {fileID: 5485469719187129378}
   - component: {fileID: 5583101575539370162}
   - component: {fileID: 5488379939468776590}
+  - component: {fileID: 2124817993865240048}
   m_Layer: 0
   m_Name: MonsterPlant
   m_TagString: Enemy
@@ -802,7 +803,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a21b63729c64fdabcac6b679f10698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 0
+  maxHP: 300
+--- !u!114 &2124817993865240048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488379939468776588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8195aba4da6905d4cb614a2673ee879d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magicPrefab: {fileID: 119514, guid: 2c380e08652138d478f2dd87afc9121f, type: 3}
+  timeOut: 3
 --- !u!1 &5488401637335115534
 GameObject:
   m_ObjectHideFlags: 0
