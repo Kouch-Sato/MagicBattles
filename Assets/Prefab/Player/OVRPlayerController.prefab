@@ -19840,6 +19840,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 1000
   playerUIManager: {fileID: 9218302655602186522}
+  magicPrefab: {fileID: 100008, guid: 0bf91128341a4420bbe84d66512b9b43, type: 3}
+  rainMagicPrefab: {fileID: 138484, guid: 67a05d2e06c5648189f5fcdb78f17960, type: 3}
+  rightControllerAnchor: {fileID: 7311098288231370287}
 --- !u!136 &7312121489448639950
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19953,7 +19956,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7311098288231370287}
-  - component: {fileID: 7312121489699537548}
   m_Layer: 0
   m_Name: RightControllerAnchor
   m_TagString: Untagged
@@ -19975,21 +19977,6 @@ Transform:
   m_Father: {fileID: 7312121489448291561}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7312121489699537548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7312193222735181689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10afb12cb1bad4deb8c24fa4871a64dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magicPrefab: {fileID: 100008, guid: 0bf91128341a4420bbe84d66512b9b43, type: 3}
-  rainMagicPrefab: {fileID: 138484, guid: 98cf95f6bedfd4f98aac3002bb6a3881, type: 3}
-  OVRPlayerController: {fileID: 7312121489448639949}
 --- !u!1 &7312783184157212059
 GameObject:
   m_ObjectHideFlags: 0
