@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMagicParticle : MonoBehaviour
+public class EnemySprayParticle : MonoBehaviour
 {
-    public GameObject explosionPrefab;
     public int damage;
 
     // Start is called before the first frame update
@@ -27,8 +26,6 @@ public class EnemyMagicParticle : MonoBehaviour
         }
 
         Debug.Log(other.name);
-        Destroy(gameObject);
-        Instantiate(explosionPrefab, transform.position, transform.rotation);
 
         if (other.tag == "Player")
         {

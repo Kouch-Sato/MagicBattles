@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class DragonManager : MonoBehaviour
 {
     public GameObject magicPrefab;
-    public GameObject bodyPrefab;
     Transform target;
     NavMeshAgent agent;
     Animator animator;
@@ -32,7 +31,7 @@ public class DragonManager : MonoBehaviour
 
     public void StartAttack()
     {
-        magicGameObject = Instantiate(magicPrefab, bodyPrefab.transform.position, transform.rotation) as GameObject;
+        magicGameObject = Instantiate(magicPrefab, transform.position + new Vector3(0, 1.0f, 0), transform.rotation) as GameObject;
         magicGameObject.transform.LookAt(target.position + new Vector3(0, -1.0f, 0));
     }
 
