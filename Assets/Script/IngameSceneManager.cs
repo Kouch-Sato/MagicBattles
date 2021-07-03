@@ -8,7 +8,8 @@ public class IngameSceneManager : MonoBehaviour
 {
     public int enemyCount;
     public int stageLevel;
-    GameObject resultText; 
+    GameObject resultText;
+    GameObject playerManager;
     // Start is called before the first frame update
     void Start()
     {
