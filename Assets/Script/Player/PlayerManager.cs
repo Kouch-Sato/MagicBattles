@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Damager damager = other.GetComponent<Damager>();
+        EnemyDamager damager = other.GetComponent<EnemyDamager>();
         if (damager)
         {
             GetDamage(damager.damage);

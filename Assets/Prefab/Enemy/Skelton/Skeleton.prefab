@@ -1049,7 +1049,7 @@ GameObject:
   - component: {fileID: 5848881746838581138}
   - component: {fileID: 5822549945370249224}
   - component: {fileID: 2184124379706358561}
-  - component: {fileID: 6697261732518181297}
+  - component: {fileID: 8364639984700932693}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -1189,7 +1189,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15304565, y: 0.35954967, z: 1.5392511}
   m_Center: {x: 0.680917, y: -1.4716123, z: 0.45125574}
---- !u!114 &6697261732518181297
+--- !u!114 &8364639984700932693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1198,7 +1198,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5846102399460131948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 792c78eea58374769a94e0ec15336c9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d03bfcd76d95473280b757e3784f5c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
@@ -2061,7 +2061,6 @@ GameObject:
   - component: {fileID: 5847251038778433464}
   - component: {fileID: 6038232836935701654}
   - component: {fileID: 2318039196980232202}
-  - component: {fileID: 4620249837054124698}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -2168,19 +2167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponCollider: {fileID: 2184124379706358561}
---- !u!114 &4620249837054124698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5847484307582966168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 792c78eea58374769a94e0ec15336c9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 100
 --- !u!1 &5847493632085643636
 GameObject:
   m_ObjectHideFlags: 0
