@@ -749,6 +749,7 @@ GameObject:
   - component: {fileID: 5583101575539370162}
   - component: {fileID: 5488379939468776590}
   - component: {fileID: 2124817993865240048}
+  - component: {fileID: 742233936}
   m_Layer: 0
   m_Name: MonsterPlant
   m_TagString: Enemy
@@ -782,7 +783,7 @@ Animator:
   m_GameObject: {fileID: 5488379939468776588}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4310b6865af0c6d4585f67cd7554d443, type: 3}
-  m_Controller: {fileID: 9100000, guid: b7d73eaa59bb6744c92c0e9f74e5c755, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0f35b4a63b8b24404821ed19b5e049d4, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -818,6 +819,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicPrefab: {fileID: 119514, guid: 2c380e08652138d478f2dd87afc9121f, type: 3}
   timeOut: 3
+--- !u!136 &742233936
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488379939468776588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.6023216
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5596733, z: 0}
 --- !u!1 &5488401637335115534
 GameObject:
   m_ObjectHideFlags: 0
