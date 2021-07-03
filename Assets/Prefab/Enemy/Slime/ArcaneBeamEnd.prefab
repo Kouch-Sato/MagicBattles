@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7597324070285479197}
   - component: {fileID: -2034192717866298825}
   - component: {fileID: 4242107551609138335}
-  - component: {fileID: 170069828367270100}
+  - component: {fileID: 1175887264262340678}
   m_Layer: 0
   m_Name: ArcaneBeamEnd
   m_TagString: Untagged
@@ -62,7 +62,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &170069828367270100
+--- !u!114 &1175887264262340678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6267134705266963053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 792c78eea58374769a94e0ec15336c9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d03bfcd76d95473280b757e3784f5c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100

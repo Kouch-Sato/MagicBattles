@@ -9580,7 +9580,7 @@ GameObject:
   - component: {fileID: 19863116}
   - component: {fileID: 19967380}
   - component: {fileID: 6825186467319953504}
-  - component: {fileID: 3669836339719334559}
+  - component: {fileID: 6853429690545739042}
   m_Layer: 0
   m_Name: EarthPillarBlast
   m_TagString: Untagged
@@ -14337,7 +14337,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 1}
---- !u!114 &3669836339719334559
+--- !u!114 &6853429690545739042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14346,7 +14346,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 119514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 792c78eea58374769a94e0ec15336c9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d03bfcd76d95473280b757e3784f5c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
