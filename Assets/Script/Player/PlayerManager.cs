@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     public int maxHP = 1000;
     int HP;
+    public bool isDie;
     public PlayerUIManager playerUIManager;
     public GameObject magicPrefab;
     public GameObject rainMagicPrefab;
@@ -17,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     {
         HP = maxHP;
         playerUIManager.Init(this);
+        isDie = false;
     }
 
     // Update is called once per frame
@@ -53,8 +55,25 @@ public class PlayerManager : MonoBehaviour
 
     public void GetDamage(int damage)
     {
+        if (isDie)
+        {
+            return;
+        }
+
         HP -= damage;
         playerUIManager.GetDamage(HP);
+
+        if ( HP <= 0 )
+        {
+            HP = 0;
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        isDie = true;
+        GameObject.Find("IngameSceneManager").GetComponent<IngameSceneManager>().isPlayerDie = isDie;
     }
 
     private void Attack()
