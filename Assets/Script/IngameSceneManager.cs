@@ -10,7 +10,7 @@ public class IngameSceneManager : MonoBehaviour
     public int stageLevel;
     GameObject resultText;
 
-    public bool playerIsDie;
+    public bool isPlayerDie;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class IngameSceneManager : MonoBehaviour
             Invoke("LoadLobbyScene", 3.0f);
         }
 
-        if (playerIsDie)
+        if (isPlayerDie)
         {
             FailStage();
             Invoke("LoadLobbyScene", 3.0f);

@@ -73,7 +73,7 @@ public class PlayerManager : MonoBehaviour
     private void Die()
     {
         isDie = true;
-        GameObject.Find("IngameSceneManager").GetComponent<IngameSceneManager>().playerIsDie = isDie;
+        GameObject.Find("IngameSceneManager").GetComponent<IngameSceneManager>().isPlayerDie = isDie;
     }
 
     private void Attack()
