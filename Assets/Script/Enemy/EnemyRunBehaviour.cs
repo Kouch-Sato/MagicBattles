@@ -8,7 +8,7 @@ public class EnemyRunBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       animator.GetComponent<NavMeshAgent>().speed = 2.0f;
+       animator.GetComponent<NavMeshAgent>().speed = 1.5f;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

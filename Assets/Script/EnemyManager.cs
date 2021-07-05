@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SkeletonManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
+    public int maxHP;
+    int hp;
+
     public Collider weaponCollider;
 
     Transform target;
     NavMeshAgent agent;
     Animator animator;
 
-
     // Start is called before the first frame update
     void Start()
     {
+        hp = maxHP;
         target = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         agent.destination = target.position;
         animator = GetComponent<Animator>();
 
-        HideColliderWeapon();
-
+        // HideColliderWeapon();
     }
 
     // Update is called once per frame
@@ -29,6 +31,25 @@ public class SkeletonManager : MonoBehaviour
     {
         agent.destination = target.position;
         animator.SetFloat("Distance", agent.remainingDistance);
+    }
+
+    public void GetDamage(int damage)
+    {
+        animator.SetTrigger("GetHit");
+        hp -= damage;
+        Debug.Log("HP:" + hp);
+
+        if (hp < 0)
+        {
+            hp = 0;
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        animator.SetTrigger("Die");
+        Destroy(gameObject, 2f);
     }
 
     public void ShowColliderWeapon()
