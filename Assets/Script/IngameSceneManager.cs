@@ -9,6 +9,8 @@ public class IngameSceneManager : MonoBehaviour
     public int enemyCount;
     public int stageLevel;
     GameObject resultText;
+    public bool isPlayerDie;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,13 @@ public class IngameSceneManager : MonoBehaviour
             ClearStage();
             Invoke("LoadLobbyScene", 3.0f);
         }
+
+        if (isPlayerDie)
+        {
+            FailStage();
+            Invoke("LoadLobbyScene", 3.0f);
+        }
+
     }
 
     void ClearStage()
@@ -36,6 +45,12 @@ public class IngameSceneManager : MonoBehaviour
         }
         resultText.SetActive (true);
         resultText.GetComponent<Text>().text = "Game Clear!!";
+    }
+
+    void FailStage()
+    {
+        resultText.SetActive (true);
+        resultText.GetComponent<Text>().text = "Defeted";
     }
 
     void LoadLobbyScene()
