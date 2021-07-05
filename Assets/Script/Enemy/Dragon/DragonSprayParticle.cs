@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySprayParticle : MonoBehaviour
+public class DragonSprayParticle : MonoBehaviour
 {
     public int damage;
 
