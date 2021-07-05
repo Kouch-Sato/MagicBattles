@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicParticle : MonoBehaviour
+public class PlayerMagicParticle : MonoBehaviour
 {
     public GameObject explosionPrefab;
     public int damage;
@@ -10,7 +10,7 @@ public class MagicParticle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(11);
+
     }
 
     // Update is called once per frame
@@ -21,13 +21,16 @@ public class MagicParticle : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Destroy(gameObject);
-        Debug.Log(other.name);
+        if (other.tag == "Player")
+        {
+            return;
+        }
+
+        // Destroy(gameObject);
         Instantiate(explosionPrefab, transform.position, transform.rotation);
 
         if (other.tag == "Enemy")
         {
-            Debug.Log("aaaaaa");
             other.GetComponent<EnemyManager>().GetDamage(damage);
         }
     }
