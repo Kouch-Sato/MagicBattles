@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMissileParticle : MonoBehaviour
+public class MageMissileParticle : MonoBehaviour
 {
     public GameObject explosionPrefab;
     public int damage;
@@ -26,7 +26,7 @@ public class EnemyMissileParticle : MonoBehaviour
             return;
         }
 
-        Debug.Log(other.name);
+        Destroy(gameObject);
         Instantiate(explosionPrefab, transform.position, transform.rotation);
 
         if (other.tag == "Player")
