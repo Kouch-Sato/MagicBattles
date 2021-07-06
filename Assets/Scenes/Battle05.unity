@@ -4238,10 +4238,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7244666979781911275, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7244666979781911279, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -8569,21 +8565,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7312121489448639948, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
-      propertyPath: maxHP
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 7312121489448639949, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
       propertyPath: m_Name
       value: OVRPlayerController
-      objectReference: {fileID: 0}
-    - target: {fileID: 7312121489460668421, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
-      propertyPath: m_Height
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7312121489460668421, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
-      propertyPath: m_Radius
-      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 9218302656234288414, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
       propertyPath: m_AnchorMax.x
@@ -15678,17 +15662,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossMage
       objectReference: {fileID: 0}
-    - target: {fileID: 2291992418631184449, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2291992418631184506, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2291992418631184506, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 69.31
+      value: 78.64
       objectReference: {fileID: 0}
     - target: {fileID: 2291992418631184506, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15696,7 +15676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2291992418631184506, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 55.97
+      value: 70.02
       objectReference: {fileID: 0}
     - target: {fileID: 2291992418631184506, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15725,10 +15705,6 @@ PrefabInstance:
     - target: {fileID: 2291992418631184506, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291992418631184508, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
-      propertyPath: maxHP
-      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}

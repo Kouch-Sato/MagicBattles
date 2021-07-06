@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a21b63729c64fdabcac6b679f10698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 300
+  maxHP: 1000
 --- !u!114 &2291992418631184511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +354,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75c8aed0fed14bacb093d8e8627ff36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 2291992419539703839}
+  weaponTransform: {fileID: 2291992419539703839}
+  weaponStaff: {fileID: 2291992419635073343}
+  weaponSize: {x: 0, y: 0, z: 0}
   magicPrefab: {fileID: 100008, guid: f9ff86c22da8df744ae97aca4526ad41, type: 3}
   timeOut: 2
 --- !u!136 &2291992418631184510
