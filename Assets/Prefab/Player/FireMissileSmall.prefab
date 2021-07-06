@@ -9577,6 +9577,8 @@ GameObject:
   - component: {fileID: 19905104}
   - component: {fileID: -4471259305627952393}
   - component: {fileID: 1800830823363639997}
+  - component: {fileID: 1866670818435481803}
+  - component: {fileID: 6176540854450460001}
   m_Layer: 0
   m_Name: FireMissileSmall
   m_TagString: Untagged
@@ -13153,7 +13155,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -14480,11 +14482,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 100008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4661f8e0e8ec4c43be173fc4a8b6b8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5de1d6d55ac960442b8439dad1d91d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 100014, guid: a2885e4cb14a04541b5b5ee9b847ac22, type: 3}
+--- !u!114 &1866670818435481803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8c4186c4e4f1944b0d5cf70cafa6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   damage: 100
+--- !u!135 &6176540854450460001
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &101042
 GameObject:
   m_ObjectHideFlags: 0

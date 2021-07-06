@@ -9547,6 +9547,8 @@ GameObject:
   - component: {fileID: 19847614}
   - component: {fileID: -5615407170867643646}
   - component: {fileID: 2175656926382061356}
+  - component: {fileID: 1522612232043434940}
+  - component: {fileID: 5735965577464643566}
   m_Layer: 0
   m_Name: ArcaneMissileSmall
   m_TagString: Untagged
@@ -13311,7 +13313,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -14464,7 +14466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 100000, guid: b9bc9df72b8ef42e6876eb6248ef9185, type: 3}
-  damage: 100
 --- !u!54 &2175656926382061356
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14481,6 +14482,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &1522612232043434940
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5735965577464643566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d03bfcd76d95473280b757e3784f5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &100010
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,15 @@ public class EnemyManager : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log(other.name);
+        PlayerDamager damager = other.GetComponent<PlayerDamager>();
+        if (damager)
+        {
+            GetDamage(damager.damage);
+        }
+    }
+
     public void GetDamage(int damage)
     {
         if ( isDie )
