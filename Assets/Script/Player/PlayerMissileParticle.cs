@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MageMissileParticle : MonoBehaviour
+public class PlayerMissileParticle : MonoBehaviour
 {
     public GameObject explosionPrefab;
 
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "Enemy")
+        if (other.tag == "Player")
         {
             return;
         }
