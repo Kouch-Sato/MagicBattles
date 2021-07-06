@@ -19836,7 +19836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58b6f070735245899eda5b3675dc071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1000
+  maxHP: 10000
   isDie: 0
   playerUIManager: {fileID: 9218302655602186522}
   magicPrefab: {fileID: 100008, guid: 0bf91128341a4420bbe84d66512b9b43, type: 3}
