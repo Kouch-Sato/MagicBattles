@@ -359,6 +359,7 @@ MonoBehaviour:
   weaponStaff: {fileID: 2291992419635073343}
   weaponSize: {x: 0, y: 0, z: 0}
   magicPrefab: {fileID: 100008, guid: f9ff86c22da8df744ae97aca4526ad41, type: 3}
+  shieldPrefab: {fileID: 100004, guid: b383978e74619764ea10ece695bbb0e7, type: 3}
 --- !u!136 &2291992418631184510
 CapsuleCollider:
   m_ObjectHideFlags: 0

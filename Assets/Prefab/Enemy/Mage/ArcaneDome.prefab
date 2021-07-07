@@ -1204,10 +1204,10 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.4627451, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 0.4627451, b: 1, a: 1}
+        key1: {r: 1, g: 0.4627451, b: 1, a: 1}
         key2: {r: 1, g: 0.98039216, b: 1, a: 1}
-        key3: {r: 1, g: 0.49411765, b: 1, a: 0}
+        key3: {r: 1, g: 0.49411765, b: 1, a: 1}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -9499,9 +9499,10 @@ GameObject:
   - component: {fileID: 400004}
   - component: {fileID: 19800004}
   - component: {fileID: 19900004}
+  - component: {fileID: 7746842823652183731}
   m_Layer: 0
   m_Name: ArcaneDome
-  m_TagString: Untagged
+  m_TagString: EnemyStaff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9515,7 +9516,7 @@ Transform:
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 458340}
   - {fileID: 400000}
@@ -14325,6 +14326,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!135 &7746842823652183731
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.3
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!1 &115124
 GameObject:
   m_ObjectHideFlags: 0

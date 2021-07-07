@@ -11,12 +11,15 @@ public class MageManager : MonoBehaviour
     public Vector3 weaponSize;
     Animator animator;
     public GameObject magicPrefab;
+    public GameObject shieldPrefab;
     NavMeshAgent agent;
 
     private float timeOutForAttack;
     private float timeOutForMove;
+    private float timeOutForShield;
     private float timeElapsedForAttack = 0;
     private float timeElapsedForMove = 0;
+    private float timeElapsedForShield = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,8 @@ public class MageManager : MonoBehaviour
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         timeOutForAttack = new System.Random().Next(6, 12);
-        timeOutForMove = new System.Random().Next(3, 5);
+        timeOutForMove = new System.Random().Next(2, 5);
+        timeOutForShield = new System.Random().Next(7, 11);
         weaponSize = weaponStaff.GetComponent<SkinnedMeshRenderer>().bounds.size;
     }
 
@@ -36,12 +40,11 @@ public class MageManager : MonoBehaviour
 
         timeElapsedForAttack += Time.deltaTime;
         timeElapsedForMove += Time.deltaTime;
+        timeElapsedForShield += Time.deltaTime;
+
         if(timeElapsedForAttack >= timeOutForAttack) {
             animator.SetTrigger("Attack");
-
             timeElapsedForAttack = 0.0f;
-
-            // 次回の攻撃までの感覚を不規則に
             timeOutForAttack = new System.Random().Next(6, 12);
         }
 
@@ -50,6 +53,13 @@ public class MageManager : MonoBehaviour
             RandomMove();
             timeElapsedForMove = 0.0f;
             timeOutForMove = new System.Random().Next(2, 5);
+        }
+
+        if(timeElapsedForShield >= timeOutForShield)
+        {
+            animator.SetTrigger("Shield");
+            timeElapsedForShield = 0.0f;
+            timeOutForShield = new System.Random().Next(8, 14);
         }
     }
 
@@ -61,6 +71,12 @@ public class MageManager : MonoBehaviour
         GameObject magicGameObject = Instantiate(magicPrefab, weaponTransform.position + weaponOffset, weaponTransform.rotation) as GameObject;
         magicGameObject.transform.LookAt(target.position);
         magicGameObject.GetComponent<Rigidbody>().AddForce(magicGameObject.transform.forward * 2000);
+    }
+
+    public void Shield()
+    {
+        GameObject shieldObject = Instantiate(shieldPrefab, transform.position, Quaternion.Euler(-90, 0, 0));
+        Destroy(shieldObject, 6.0f);
     }
 
     private void RandomMove()

@@ -5,11 +5,10 @@ using UnityEngine;
 public class MageMissileParticle : MonoBehaviour
 {
     public GameObject explosionPrefab;
-
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy" || other.tag == "EnemyStaff")
         {
             return;
         }
