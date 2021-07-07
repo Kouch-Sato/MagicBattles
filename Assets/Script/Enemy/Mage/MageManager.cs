@@ -1,22 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MageManager : MonoBehaviour
 {
     Transform target;
-    public Transform weapon;
+    public Transform weaponTransform;
+    public GameObject weaponStaff;
+    public Vector3 weaponSize;
     Animator animator;
     public GameObject magicPrefab;
+    NavMeshAgent agent;
 
-    public float timeOut = 5;
-    private float timeElapsed = 0;
+    private float timeOutForAttack;
+    private float timeOutForMove;
+    private float timeElapsedForAttack = 0;
+    private float timeElapsedForMove = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
         animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        timeOutForAttack = new System.Random().Next(6, 12);
+        timeOutForMove = new System.Random().Next(3, 5);
+        weaponSize = weaponStaff.GetComponent<SkinnedMeshRenderer>().bounds.size;
     }
 
     // Update is called once per frame
@@ -24,18 +34,60 @@ public class MageManager : MonoBehaviour
     {
         this.transform.LookAt(target.position);
 
-        timeElapsed += Time.deltaTime;
-        if(timeElapsed >= timeOut) {
+        timeElapsedForAttack += Time.deltaTime;
+        timeElapsedForMove += Time.deltaTime;
+        if(timeElapsedForAttack >= timeOutForAttack) {
             animator.SetTrigger("Attack");
 
-            timeElapsed = 0.0f;
+            timeElapsedForAttack = 0.0f;
+
+            // 次回の攻撃までの感覚を不規則に
+            timeOutForAttack = new System.Random().Next(6, 12);
+        }
+
+        if(timeElapsedForMove >= timeOutForMove)
+        {
+            RandomMove();
+            timeElapsedForMove = 0.0f;
+            timeOutForMove = new System.Random().Next(2, 5);
         }
     }
 
     public void Attack()
     {
-        GameObject magicGameObject = Instantiate(magicPrefab, weapon.position, weapon.rotation) as GameObject;
+        // 魔法の発射位置が、ステッキの上部に来るように調整
+        var weaponOffset = new Vector3(0.0f, weaponSize.y / 3.0f, 0.0f);
+        
+        GameObject magicGameObject = Instantiate(magicPrefab, weaponTransform.position + weaponOffset, weaponTransform.rotation) as GameObject;
         magicGameObject.transform.LookAt(target.position);
         magicGameObject.GetComponent<Rigidbody>().AddForce(magicGameObject.transform.forward * 2000);
+    }
+
+    private void RandomMove()
+    {
+        string[] directions = new string[] { "forward", "backward", "right", "left" };
+        string direction = directions[new System.Random().Next(0, directions.Length)];
+        
+        switch (direction)
+        {
+            // transform.forward(right)等は、現在のgameobjectの向きベクトルに対して、指定した方向を示す大きさ1のVector3
+            case "forward":
+                animator.SetTrigger("WalkForward");
+                agent.destination = transform.position + transform.forward;
+                break;
+            case "backward":
+                animator.SetTrigger("WalkBackward");
+                agent.destination = transform.position - transform.forward;
+                break;
+            case "right":
+                animator.SetTrigger("WalkRight");
+                agent.destination = transform.position + transform.right;
+                break;
+            case "left":
+                animator.SetTrigger("WalkLeft");
+                agent.destination = transform.position - transform.right;
+                break;
+        }
+
     }
 }

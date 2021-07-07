@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 2291992418631184508}
   - component: {fileID: 2291992418631184511}
   - component: {fileID: 2291992418631184510}
+  - component: {fileID: 8340791103575754219}
   m_Layer: 0
   m_Name: BossMage
   m_TagString: Enemy
@@ -341,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a21b63729c64fdabcac6b679f10698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 300
+  maxHP: 1000
 --- !u!114 &2291992418631184511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,9 +355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75c8aed0fed14bacb093d8e8627ff36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 2291992419539703839}
+  weaponTransform: {fileID: 2291992419539703839}
+  weaponStaff: {fileID: 2291992419635073343}
+  weaponSize: {x: 0, y: 0, z: 0}
   magicPrefab: {fileID: 100008, guid: f9ff86c22da8df744ae97aca4526ad41, type: 3}
-  timeOut: 2
 --- !u!136 &2291992418631184510
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -371,6 +373,28 @@ CapsuleCollider:
   m_Height: 1.799902
   m_Direction: 1
   m_Center: {x: -0.045272827, y: 0.72993755, z: 0.07988548}
+--- !u!195 &8340791103575754219
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291992418631184449}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &2291992418640597181
 GameObject:
   m_ObjectHideFlags: 0
