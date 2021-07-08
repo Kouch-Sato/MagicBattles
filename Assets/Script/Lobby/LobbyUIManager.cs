@@ -37,6 +37,6 @@ public class LobbyUIManager : MonoBehaviour
         }
 
         GameObject playerLevelText = GameObject.Find("PlayerLevelText");
-        playerLevelText.GetComponent<Text>().text = "今のあなたのレベルは" + playerLevel.ToString() + "です";
+        playerLevelText.GetComponent<Text>().text = "レベル: " + playerLevel.ToString();
     }
 }
