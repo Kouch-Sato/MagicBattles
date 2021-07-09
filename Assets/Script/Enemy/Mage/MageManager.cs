@@ -76,7 +76,7 @@ public class MageManager : MonoBehaviour
     public void Shield()
     {
         GameObject shieldObject = Instantiate(shieldPrefab, transform.position, Quaternion.Euler(-90, 0, 0));
-        Destroy(shieldObject, 6.0f);
+        Destroy(shieldObject, 8.0f);
     }
 
     private void RandomMove()
