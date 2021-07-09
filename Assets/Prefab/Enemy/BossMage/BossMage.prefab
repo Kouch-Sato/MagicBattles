@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 2291992418631184509}
   - component: {fileID: 2291992418631184508}
   - component: {fileID: 2291992418631184511}
+  - component: {fileID: 2236891327012634164}
   - component: {fileID: 2291992418631184510}
   - component: {fileID: 8340791103575754219}
   m_Layer: 0
@@ -358,8 +359,22 @@ MonoBehaviour:
   weaponTransform: {fileID: 2291992419539703839}
   weaponStaff: {fileID: 2291992419635073343}
   weaponSize: {x: 0, y: 0, z: 0}
-  magicPrefab: {fileID: 100008, guid: f9ff86c22da8df744ae97aca4526ad41, type: 3}
+  missilePrefab: {fileID: 100008, guid: f9ff86c22da8df744ae97aca4526ad41, type: 3}
   shieldPrefab: {fileID: 100004, guid: b383978e74619764ea10ece695bbb0e7, type: 3}
+--- !u!114 &2236891327012634164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291992418631184449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4b274c12815404b8f4854b6b5ec193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spherePrefab: {fileID: 5553527201595373449, guid: 4d9872226700caa49b64634592addf15, type: 3}
+  explosionPrefab: {fileID: 100000, guid: de5cc97ebe137f84d992321892231890, type: 3}
 --- !u!136 &2291992418631184510
 CapsuleCollider:
   m_ObjectHideFlags: 0
