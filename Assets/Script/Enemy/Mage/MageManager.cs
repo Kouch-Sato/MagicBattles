@@ -10,7 +10,7 @@ public class MageManager : MonoBehaviour
     public GameObject weaponStaff;
     public Vector3 weaponSize;
     Animator animator;
-    public GameObject magicPrefab;
+    public GameObject missilePrefab;
     public GameObject shieldPrefab;
     NavMeshAgent agent;
 
@@ -68,7 +68,7 @@ public class MageManager : MonoBehaviour
         // 魔法の発射位置が、ステッキの上部に来るように調整
         var weaponOffset = new Vector3(0.0f, weaponSize.y / 3.0f, 0.0f);
         
-        GameObject magicGameObject = Instantiate(magicPrefab, weaponTransform.position + weaponOffset, weaponTransform.rotation) as GameObject;
+        GameObject magicGameObject = Instantiate(missilePrefab, weaponTransform.position + weaponOffset, weaponTransform.rotation) as GameObject;
         magicGameObject.transform.LookAt(target.position);
         magicGameObject.GetComponent<Rigidbody>().AddForce(magicGameObject.transform.forward * 2000);
     }
@@ -76,7 +76,7 @@ public class MageManager : MonoBehaviour
     public void Shield()
     {
         GameObject shieldObject = Instantiate(shieldPrefab, transform.position, Quaternion.Euler(-90, 0, 0));
-        Destroy(shieldObject, 6.0f);
+        Destroy(shieldObject, 8.0f);
     }
 
     private void RandomMove()

@@ -2012,7 +2012,7 @@ MonoBehaviour:
   weaponTransform: {fileID: 7244666978526038666}
   weaponStaff: {fileID: 7244666978638349226}
   weaponSize: {x: 0, y: 0, z: 0}
-  magicPrefab: {fileID: 100006, guid: 86460cf653489d64788fb5b5506ee2b3, type: 3}
+  missilePrefab: {fileID: 100006, guid: 86460cf653489d64788fb5b5506ee2b3, type: 3}
   shieldPrefab: {fileID: 100004, guid: 2eaedf058bb9a824ca80391e0129db34, type: 3}
 --- !u!136 &7244666979781911275
 CapsuleCollider:

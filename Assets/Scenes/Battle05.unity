@@ -16211,6 +16211,18 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2291992418631184506, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291992418631184506, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291992418631184506, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291992418631184506, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 78.64
       objectReference: {fileID: 0}
@@ -16250,5 +16262,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2291992418631184509, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4928f08b3e669134ca0792363fcb8529, type: 2}
+    - target: {fileID: 2291992418631184511, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
+      propertyPath: isBoss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291992418631184511, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
+      propertyPath: isBossMage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291992418631184511, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
+      propertyPath: blastPrefab
+      value: 
+      objectReference: {fileID: 5553527201595373449, guid: 4d9872226700caa49b64634592addf15, type: 3}
+    - target: {fileID: 2291992418631184511, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
+      propertyPath: slashPrefab
+      value: 
+      objectReference: {fileID: 190198, guid: d01526013611bee4a9544587702d203a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1f763e47368e0047a3310915bbe92f5, type: 3}
