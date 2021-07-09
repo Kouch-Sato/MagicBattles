@@ -10,7 +10,9 @@ public class PlayerManager : MonoBehaviour
     public PlayerUIManager playerUIManager;
     public GameObject magicPrefab;
     public GameObject rainMagicPrefab;
+    public Transform leftControllerAnchor;
     public Transform rightControllerAnchor;
+    public Transform PlayerSight;
 
 
     // Start is called before the first frame update
@@ -26,12 +28,29 @@ public class PlayerManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Attack();
+            RightAttack();
         }
 
-        if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
+        if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
         {
-            Attack();
+            OVRInput.Controller RightCon = OVRInput.Controller.RTouch;
+            Vector3 accRight = OVRInput.GetLocalControllerAcceleration(RightCon);
+
+            if (accRight.magnitude > 2)
+            {
+                RightAttack();
+            }
+        }
+
+        if (OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger))
+        {
+            OVRInput.Controller LeftCon = OVRInput.Controller.LTouch;
+            Vector3 accLeft = OVRInput.GetLocalControllerAcceleration(LeftCon);
+
+            if (accLeft.magnitude > 2)
+            {
+                LeftAttack();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.K))
@@ -41,7 +60,8 @@ public class PlayerManager : MonoBehaviour
 
         if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
         {
-            RainAttack();
+            // TODO:仕様検討
+            // RainAttack();
         }
     }
 
@@ -76,10 +96,16 @@ public class PlayerManager : MonoBehaviour
         GameObject.Find("IngameSceneManager").GetComponent<IngameSceneManager>().isPlayerDie = isDie;
     }
 
-    private void Attack()
+    private void LeftAttack()
+    {
+        GameObject magicGameObject = Instantiate(magicPrefab, leftControllerAnchor.position, leftControllerAnchor.rotation) as GameObject;
+        magicGameObject.GetComponent<Rigidbody>().AddForce(PlayerSight.transform.forward * 1000);
+    }
+
+    private void RightAttack()
     {
         GameObject magicGameObject = Instantiate(magicPrefab, rightControllerAnchor.position, rightControllerAnchor.rotation) as GameObject;
-        magicGameObject.GetComponent<Rigidbody>().AddForce(magicGameObject.transform.forward * 1000);
+        magicGameObject.GetComponent<Rigidbody>().AddForce(PlayerSight.transform.forward * 1000);
     }
 
     private void RainAttack()
