@@ -11,6 +11,7 @@ public class SkeletonManager : MonoBehaviour
     NavMeshAgent agent;
     Animator animator;
     public GameObject magicSwordPrefab;
+    public GameObject magicSwordInstantiateSound;
     private float timeOutForMagicSword;
     private float timeElapsedForMagicSword = 0;
 
@@ -51,6 +52,9 @@ public class SkeletonManager : MonoBehaviour
 
     List<GameObject> InstantiateMagicSword()
     {
+        GameObject soundObject = Instantiate(magicSwordInstantiateSound, transform.position, transform.rotation) as GameObject;
+        Destroy(soundObject, 2.0f);
+
         Vector3 positionYAxisOffset = new Vector3(0.0f, 2.5f, 0.0f);
         int instantiateRadius = 3;
         Vector3 targetPosition = target.transform.position + new Vector3(0, -0.5f, 0);
