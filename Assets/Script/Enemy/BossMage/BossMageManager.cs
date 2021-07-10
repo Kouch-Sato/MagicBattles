@@ -60,7 +60,7 @@ public class BossMageManager : MonoBehaviour
             yield return new WaitForSeconds (4);
             sphereObject.transform.LookAt(target.position);
             sphereObject.GetComponent<Rigidbody>().AddForce(sphereObject.transform.forward * 2000);
-            Destroy(sphereObject, 1.4f);
+            Destroy(sphereObject, 3.0f);
         }
     }
 }
