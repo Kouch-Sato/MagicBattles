@@ -2168,6 +2168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponCollider: {fileID: 24490772349958573}
   magicSwordPrefab: {fileID: 3799371002180967810, guid: 3e7c72db1b8f6bd4587991c2601c40ec, type: 3}
+  magicSwordInstantiateSound: {fileID: 5642802912135487613, guid: 3af06ac237e87af46b09a3c3fc5bd8ac, type: 3}
 --- !u!1 &5847493632085643636
 GameObject:
   m_ObjectHideFlags: 0
