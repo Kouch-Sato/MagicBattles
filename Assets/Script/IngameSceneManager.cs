@@ -38,11 +38,20 @@ public class IngameSceneManager : MonoBehaviour
 
     void ClearStage()
     {
-        int playerLevel = PlayerPrefs.GetInt("PLAYER_LEVEL", 0);
-        if (stageLevel > playerLevel)
+        int currentPlayerLevel = PlayerPrefs.GetInt("PLAYER_LEVEL", 0);
+        int currentStageScore = PlayerPrefs.GetInt($"SCORE_{stageLevel}", 0);
+        int resultScore = CalculateResultScore();
+
+        if (stageLevel > currentPlayerLevel)
         {
             PlayerPrefs.SetInt("PLAYER_LEVEL", stageLevel);
         }
+        if (resultScore > currentStageScore)
+        {
+            PlayerPrefs.SetInt($"SCORE_{stageLevel}", resultScore);
+        }
+        PlayerPrefs.Save();
+        
         resultText.SetActive (true);
         resultText.GetComponent<Text>().text = "Game Clear!!";
     }
@@ -56,5 +65,12 @@ public class IngameSceneManager : MonoBehaviour
     void LoadLobbyScene()
     {
         SceneManager.LoadScene("Lobby");
+    }
+
+    int CalculateResultScore()
+    {
+        // スコアの計算方法を後日実装
+        int result = 2;
+        return result;
     }
 }
