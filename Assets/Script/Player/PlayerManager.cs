@@ -10,11 +10,10 @@ public class PlayerManager : MonoBehaviour
     float MP;
     public bool isDie;
     public PlayerUIManager playerUIManager;
-    public GameObject magicPrefab;
+    public GameObject missilePrefab;
     public GameObject rainMagicPrefab;
     public Transform leftControllerAnchor;
     public Transform rightControllerAnchor;
-    public Transform PlayerSight;
 
 
     // Start is called before the first frame update
@@ -29,43 +28,27 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
         {
-            RightAttack();
-        }
-
-        if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
-        {
-            OVRInput.Controller RightCon = OVRInput.Controller.RTouch;
-            Vector3 accRight = OVRInput.GetLocalControllerAcceleration(RightCon);
-
-            if (accRight.magnitude > 2)
-            {
-                RightAttack();
-            }
+            MissileAttack(rightControllerAnchor);
         }
 
         if (OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger))
         {
-            OVRInput.Controller LeftCon = OVRInput.Controller.LTouch;
-            Vector3 accLeft = OVRInput.GetLocalControllerAcceleration(LeftCon);
+            MissileAttack(leftControllerAnchor);
+        }
 
-            if (accLeft.magnitude > 2)
-            {
-                LeftAttack();
-            }
+        // START: PCデバッグ用
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            MissileAttack(rightControllerAnchor);
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
             RainAttack();
         }
-
-        if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
-        {
-            // TODO:仕様検討
-            // RainAttack();
-        }
+        // END: PCデバッグ用
 
         if (MP < maxMP)
         {
@@ -106,20 +89,15 @@ public class PlayerManager : MonoBehaviour
         GameObject.Find("IngameSceneManager").GetComponent<IngameSceneManager>().isPlayerDie = isDie;
     }
 
-    private void LeftAttack()
-    {
-        GameObject magicGameObject = Instantiate(magicPrefab, leftControllerAnchor.position, leftControllerAnchor.rotation) as GameObject;
-        magicGameObject.GetComponent<Rigidbody>().AddForce(PlayerSight.transform.forward * 1000);
-    }
-
-    private void RightAttack()
+    private void MissileAttack(Transform controllerAnchor)
     {
         if (MP >= 20)
         {
             MP -= 20.0f;
             playerUIManager.UpdateMP(MP);
-            GameObject magicGameObject = Instantiate(magicPrefab, rightControllerAnchor.position, rightControllerAnchor.rotation) as GameObject;
-            magicGameObject.GetComponent<Rigidbody>().AddForce(PlayerSight.transform.forward * 1000);
+            GameObject missileObject = Instantiate(missilePrefab, controllerAnchor.position, controllerAnchor.rotation) as GameObject;
+            missileObject.GetComponent<Rigidbody>().AddForce(missileObject.transform.forward * 1000);
+            Destroy(missileObject, 5.0f);
         }
     }
 
