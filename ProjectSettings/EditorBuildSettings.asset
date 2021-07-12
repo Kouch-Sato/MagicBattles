@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle07.unity
     guid: a24891426c626f34cbdd0972df7b2053
+  - enabled: 1
+    path: Assets/Scenes/Battle10.unity
+    guid: 7a64d9ab813ab48c6a21966649457d46
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d7ddd94af55bf484c815282fb2a2b62d, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5da612fbb546e431fbe035785465b6a1, type: 2}

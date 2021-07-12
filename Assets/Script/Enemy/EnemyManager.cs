@@ -56,7 +56,7 @@ public class EnemyManager : MonoBehaviour
     {
         animator.SetTrigger("Die");
         isDie = true;
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 5f);
         ingameSceneManager.GetComponent<IngameSceneManager>().enemyCount -= 1;
     }
 }

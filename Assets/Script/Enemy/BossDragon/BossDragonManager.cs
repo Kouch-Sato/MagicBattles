@@ -12,24 +12,19 @@ public class BossDragonManager : MonoBehaviour
     GameObject magicGameObject;
     float distance;
     bool isFlying;
-    NavMeshAgent agent;
 
-    // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
         animator = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
-        agent.destination = target.position;
-        agent.speed = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         target = GameObject.FindWithTag("Player").transform;
         this.transform.LookAt(target.position);
-        distance = Vector3.Distance(target.position, transform.position);
+        distance = DirectionToPlayer().magnitude;
+        Debug.Log(distance);
 
         if (magicGameObject)
         {
@@ -38,7 +33,7 @@ public class BossDragonManager : MonoBehaviour
             magicGameObject.transform.Rotate(10, 0, 0);
         }
 
-        if (distance > 20)
+        if (distance > 25)
         {
             isFlying = true;
             animator.SetTrigger("TakeOff");
@@ -46,16 +41,18 @@ public class BossDragonManager : MonoBehaviour
 
         if (isFlying)
         {
-            if (distance < 10)
+            if (distance < 20)
             {
-                agent.speed = 0;
                 animator.ResetTrigger("TakeOff");
                 animator.SetTrigger("FlyFlame");
                 isFlying = false;
             }
-
-            agent.speed = 5;
         }
+    }
+
+    public Vector3 DirectionToPlayer()
+    {
+        return new Vector3((target.position.x - transform.position.x), 0, (target.position.z - transform.position.z));
     }
 
     public void StartAttack()

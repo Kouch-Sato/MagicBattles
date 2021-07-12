@@ -7,7 +7,8 @@ public class BossDragonFlyManager : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<Rigidbody>().AddForce(animator.GetComponent<Transform>().forward * 2);
+        Vector3 direction = animator.GetComponent<BossDragonManager>().DirectionToPlayer().normalized;
+        animator.GetComponent<Rigidbody>().AddForce(direction * 500);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
