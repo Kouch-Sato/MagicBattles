@@ -6,6 +6,8 @@ public class PlayerManager : MonoBehaviour
 {
     public int maxHP = 1000;
     int HP;
+    public float maxMP = 100.0f;
+    float MP;
     public bool isDie;
     public PlayerUIManager playerUIManager;
     public GameObject magicPrefab;
@@ -19,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         HP = maxHP;
+        MP = maxMP;
         playerUIManager.Init(this);
         isDie = false;
     }
@@ -63,6 +66,13 @@ public class PlayerManager : MonoBehaviour
             // TODO:仕様検討
             // RainAttack();
         }
+
+        if (MP < maxMP)
+        {
+            MP += 0.1f;
+            playerUIManager.MPSlider.value = MP;
+        }
+
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -104,8 +114,13 @@ public class PlayerManager : MonoBehaviour
 
     private void RightAttack()
     {
-        GameObject magicGameObject = Instantiate(magicPrefab, rightControllerAnchor.position, rightControllerAnchor.rotation) as GameObject;
-        magicGameObject.GetComponent<Rigidbody>().AddForce(PlayerSight.transform.forward * 1000);
+        if (MP >= 20)
+        {
+            MP -= 20.0f;
+            playerUIManager.UpdateMP(MP);
+            GameObject magicGameObject = Instantiate(magicPrefab, rightControllerAnchor.position, rightControllerAnchor.rotation) as GameObject;
+            magicGameObject.GetComponent<Rigidbody>().AddForce(PlayerSight.transform.forward * 1000);
+        }
     }
 
     private void RainAttack()
