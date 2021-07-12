@@ -6,13 +6,16 @@ using DG.Tweening;
 
 public class PlayerUIManager : MonoBehaviour
 {
-    public Slider hpSlider;
+    public Slider HPSlider;
+    public Slider MPSlider;
     public Image damageImage;
 
     public void Init(PlayerManager playerManager)
     {
-        hpSlider.maxValue = playerManager.maxHP;
-        hpSlider.value = playerManager.maxHP;
+        HPSlider.maxValue = playerManager.maxHP;
+        HPSlider.value = playerManager.maxHP;
+        MPSlider.maxValue = playerManager.maxMP;
+        MPSlider.value = playerManager.maxMP;
         damageImage.enabled = true;
         damageImage.color = Color.clear;
     }
@@ -24,7 +27,12 @@ public class PlayerUIManager : MonoBehaviour
 
     public void GetDamage(int HP)
     {
-        hpSlider.DOValue(HP, 0.3f);
+        HPSlider.DOValue(HP, 0.3f);
         damageImage.color = new Color(0.8f, 0, 0, 0.5f);
+    }
+
+    public void UpdateMP(float MP)
+    {
+        MPSlider.DOValue(MP, 0.3f);
     }
 }
