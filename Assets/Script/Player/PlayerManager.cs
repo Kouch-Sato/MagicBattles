@@ -14,8 +14,10 @@ public class PlayerManager : MonoBehaviour
     public GameObject rainPrefab;
     public Transform leftControllerAnchor;
     public Transform rightControllerAnchor;
+    public GameObject rightHandFireOrbitSphere;
     private OVRInput.Controller leftCon;
     private OVRInput.Controller rightCon;
+    private bool holdMissile = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,21 +26,37 @@ public class PlayerManager : MonoBehaviour
         MP = maxMP;
         playerUIManager.Init(this);
         isDie = false;
-        leftCon = OVRInput.Controller.LTouch;
         rightCon = OVRInput.Controller.RTouch;
+        leftCon = OVRInput.Controller.LTouch;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger) && !RainAttackTrigger())
+        if (HoldMissileTrigger())
         {
-            MissileAttack(rightControllerAnchor);
+            holdMissile = true;
+            rightHandFireOrbitSphere.SetActive(true);
         }
 
-        if (OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger) && !RainAttackTrigger())
+        if (holdMissile)
         {
-            MissileAttack(leftControllerAnchor);
+            OVRInput.SetControllerVibration(0.3f, 0.3f, rightCon);
+        }
+        
+        if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger) && holdMissile)
+        {
+            MissileAttack(rightControllerAnchor);
+            holdMissile = false;
+            rightHandFireOrbitSphere.SetActive(false);
+            StartCoroutine (MagicReleaseVibration());
+
+            IEnumerator MagicReleaseVibration()
+            {
+                OVRInput.SetControllerVibration(1, 1, rightCon);
+                yield return new WaitForSeconds (0.2f);
+                OVRInput.SetControllerVibration(0, 0, rightCon);
+            }
         }
 
         if (RainAttackTrigger())
@@ -97,6 +115,17 @@ public class PlayerManager : MonoBehaviour
         GameObject.Find("IngameSceneManager").GetComponent<IngameSceneManager>().isPlayerDie = isDie;
     }
 
+    private bool HoldMissileTrigger()
+    {
+        bool trigger = OVRInput.Get(OVRInput.RawButton.RIndexTrigger);
+        var rAngularAcc = OVRInput.GetLocalControllerAngularAcceleration(rightCon);
+        if (rAngularAcc.magnitude >= 200 && trigger)
+        {
+            return true;
+        }
+        return false;
+    }
+
     private void MissileAttack(Transform controllerAnchor)
     {
         float MPAmount = 20.0f;
@@ -104,6 +133,7 @@ public class PlayerManager : MonoBehaviour
         {
             MP -= MPAmount;
             playerUIManager.UpdateMP(MP);
+
             GameObject missileObject = Instantiate(missilePrefab, controllerAnchor.position, controllerAnchor.rotation) as GameObject;
             missileObject.GetComponent<Rigidbody>().AddForce(missileObject.transform.forward * 1000);
             Destroy(missileObject, 4.0f);
