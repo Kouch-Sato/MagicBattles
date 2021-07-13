@@ -9,29 +9,29 @@ public class IngameSceneManager : MonoBehaviour
 {
     public int enemyCount;
     public int stageLevel;
-    GameObject resultText;
+    GameObject outgameUICanvas;
     public bool isPlayerDie;
     float startTime;
+    bool gameFinished = false;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        resultText = GameObject.Find("ResultText");
-        resultText.SetActive (false);
+        outgameUICanvas = GameObject.Find("OutgameUICanvas");
         startTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemyCount <= 0)
+        if (enemyCount <= 0 && !gameFinished)
         {
             ClearStage();
-            Invoke("LoadLobbyScene", 3.0f);
+            Invoke("LoadLobbyScene", 5.0f);
         }
 
-        if (isPlayerDie)
+        if (isPlayerDie && !gameFinished)
         {
             FailStage();
             Invoke("LoadLobbyScene", 3.0f);
@@ -40,6 +40,9 @@ public class IngameSceneManager : MonoBehaviour
 
     void ClearStage()
     {
+        gameFinished = true;
+        GameObject.Find("PlayerUICanvas").SetActive(false);
+
         int currentPlayerLevel = PlayerPrefs.GetInt("PLAYER_LEVEL", 0);
         int currentStageScore = PlayerPrefs.GetInt($"SCORE_{stageLevel}", 0);
         int playerLastHP = GameObject.FindWithTag("Player").GetComponent<PlayerManager>().HP;
@@ -56,14 +59,17 @@ public class IngameSceneManager : MonoBehaviour
         }
         PlayerPrefs.Save();
 
-        resultText.SetActive (true);
-        resultText.GetComponent<Text>().text = "Game Clear!!";
+        GameObject clearPanel = outgameUICanvas.transform.Find("ClearPanel").gameObject;
+        clearPanel.SetActive(true);
+        clearPanel.transform.Find("WoodenShield").Find($"Star_{resultScore}").gameObject.SetActive(true);
+        clearPanel.transform.Find("StageLevelRibbon").Find("Text").GetComponent<Text>().text = $"Stage {stageLevel}";
     }
 
     void FailStage()
     {
-        resultText.SetActive (true);
-        resultText.GetComponent<Text>().text = "Defeted";
+        gameFinished = true;
+        GameObject.Find("PlayerUICanvas").SetActive(false);
+        outgameUICanvas.transform.Find("FailPanel").gameObject.SetActive(true);
     }
 
     void LoadLobbyScene()
