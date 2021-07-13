@@ -14,7 +14,8 @@ public class PlayerManager : MonoBehaviour
     public GameObject rainPrefab;
     public Transform leftControllerAnchor;
     public Transform rightControllerAnchor;
-
+    private OVRInput.Controller leftCon;
+    private OVRInput.Controller rightCon;
 
     // Start is called before the first frame update
     void Start()
@@ -23,22 +24,24 @@ public class PlayerManager : MonoBehaviour
         MP = maxMP;
         playerUIManager.Init(this);
         isDie = false;
+        leftCon = OVRInput.Controller.LTouch;
+        rightCon = OVRInput.Controller.RTouch;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
+        if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger) && !RainAttackTrigger())
         {
             MissileAttack(rightControllerAnchor);
         }
 
-        if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
+        if (OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger) && !RainAttackTrigger())
         {
             MissileAttack(leftControllerAnchor);
         }
 
-        if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) && OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
+        if (RainAttackTrigger())
         {
             RainAttack();
         }
@@ -96,9 +99,10 @@ public class PlayerManager : MonoBehaviour
 
     private void MissileAttack(Transform controllerAnchor)
     {
-        if (MP >= 20)
+        float MPAmount = 20.0f;
+        if (MP >= MPAmount)
         {
-            MP -= 20.0f;
+            MP -= MPAmount;
             playerUIManager.UpdateMP(MP);
             GameObject missileObject = Instantiate(missilePrefab, controllerAnchor.position, controllerAnchor.rotation) as GameObject;
             missileObject.GetComponent<Rigidbody>().AddForce(missileObject.transform.forward * 1000);
@@ -106,9 +110,33 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void RainAttack()
+    private bool RainAttackTrigger()
     {
-        float instantiateRadius = 8.0f;
+        bool rTrigger = OVRInput.Get(OVRInput.RawButton.RIndexTrigger);
+        bool lTrigger = OVRInput.Get(OVRInput.RawButton.LIndexTrigger);
+        Vector3 rightVelocity = OVRInput.GetLocalControllerVelocity(rightCon);
+        Vector3 leftVelocity = OVRInput.GetLocalControllerVelocity(leftCon);
+        
+        if (rTrigger && lTrigger)
+        {
+            if (rightVelocity.y <= -2 && leftVelocity.y <= -2)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void RainAttack()
+    {   
+        float MPAmount = 51;
+        if (MP < MPAmount)
+        {
+            return;
+        }
+
+        MP -= MPAmount;
+        float instantiateRadius = 10.0f;
 
         float cos72 = (float)System.Math.Cos(72 * System.Math.PI / 180);
         float sin72 = (float)System.Math.Sin(72 * System.Math.PI / 180);
@@ -118,6 +146,7 @@ public class PlayerManager : MonoBehaviour
 
         // 正五角形の頂点を時計の12の位置において、時計回りにListに追加
         var positionList = new List<Vector3>();
+        positionList.Add(transform.position);
         positionList.Add(transform.position + transform.forward * instantiateRadius);
         positionList.Add(transform.position + (transform.forward * cos72 + transform.right * sin72) * instantiateRadius);
         positionList.Add(transform.position + (transform.forward * (-1) * cos36 + transform.right * sin36) * instantiateRadius);
