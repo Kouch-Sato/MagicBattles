@@ -5,5 +5,5 @@ using UnityEngine;
 public class PlayerDamager : MonoBehaviour
 {
     public int damage;
-    public bool onExitDamage = false;
+    public bool onStayDamage = false;
 }

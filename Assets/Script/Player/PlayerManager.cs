@@ -138,20 +138,23 @@ public class PlayerManager : MonoBehaviour
         MP -= MPAmount;
         float instantiateRadius = 10.0f;
 
-        float cos72 = (float)System.Math.Cos(72 * System.Math.PI / 180);
-        float sin72 = (float)System.Math.Sin(72 * System.Math.PI / 180);
-        float cos36 = (float)System.Math.Cos(36 * System.Math.PI / 180);
-        float sin36 = (float)System.Math.Sin(36 * System.Math.PI / 180);
+        float cos60 = 1.0f / 2.0f;
+        float sin60 = 1.732f / 2.0f;
         Vector3 positionYAxisOffset = new Vector3(0, 1.2f, 0);
 
-        // 正五角形の頂点を時計の12の位置において、時計回りにListに追加
+        Vector3 tp = transform.position;
+        Vector3 tf = transform.forward;
+        Vector3 tr = transform.right;
+
+        // 正六角形の頂点を時計の12の位置において、時計回りにListに追加
         var positionList = new List<Vector3>();
-        positionList.Add(transform.position);
-        positionList.Add(transform.position + transform.forward * instantiateRadius);
-        positionList.Add(transform.position + (transform.forward * cos72 + transform.right * sin72) * instantiateRadius);
-        positionList.Add(transform.position + (transform.forward * (-1) * cos36 + transform.right * sin36) * instantiateRadius);
-        positionList.Add(transform.position - (transform.forward * cos36 + transform.right * sin36) * instantiateRadius);
-        positionList.Add(transform.position + (transform.forward * cos72 - transform.right * sin72) * instantiateRadius);
+        positionList.Add(tp);
+        positionList.Add(tp + tf * instantiateRadius);
+        positionList.Add(tp + (tf * cos60 + tr * sin60) * instantiateRadius);
+        positionList.Add(tp + (tf * (-1) * cos60 + tr * sin60) * instantiateRadius);
+        positionList.Add(tp - tf * instantiateRadius);
+        positionList.Add(tp + (tf * (-1) * cos60 + tr * (-1) * sin60) * instantiateRadius);
+        positionList.Add(tp + (tf * cos60 - tr * sin60) * instantiateRadius);
 
         for (int i=0; i < positionList.Count; i++)
         {
