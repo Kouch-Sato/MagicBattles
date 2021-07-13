@@ -20195,7 +20195,7 @@ MonoBehaviour:
   isDie: 0
   playerUIManager: {fileID: 9218302655602186522}
   missilePrefab: {fileID: 100008, guid: 0bf91128341a4420bbe84d66512b9b43, type: 3}
-  rainMagicPrefab: {fileID: 138484, guid: 67a05d2e06c5648189f5fcdb78f17960, type: 3}
+  rainPrefab: {fileID: 138484, guid: 67a05d2e06c5648189f5fcdb78f17960, type: 3}
   leftControllerAnchor: {fileID: 7311381334985236577}
   rightControllerAnchor: {fileID: 7311098288231370287}
 --- !u!1 &7312121489448639951

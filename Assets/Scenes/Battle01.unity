@@ -4226,6 +4226,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5847251038778433464, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5847484307582966168, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
       propertyPath: m_Name
       value: Skeleton
@@ -4236,15 +4240,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5848991989640268562, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.83
+      value: 67.19
       objectReference: {fileID: 0}
     - target: {fileID: 5848991989640268562, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.27
+      value: 21.8
       objectReference: {fileID: 0}
     - target: {fileID: 5848991989640268562, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 49.36
+      value: 52.06
       objectReference: {fileID: 0}
     - target: {fileID: 5848991989640268562, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
       propertyPath: m_LocalRotation.w
