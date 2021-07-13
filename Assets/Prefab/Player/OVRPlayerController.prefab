@@ -10048,7 +10048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4415906885070133573
 Transform:
   m_ObjectHideFlags: 0
@@ -20198,6 +20198,7 @@ MonoBehaviour:
   rainPrefab: {fileID: 138484, guid: 67a05d2e06c5648189f5fcdb78f17960, type: 3}
   leftControllerAnchor: {fileID: 7311381334985236577}
   rightControllerAnchor: {fileID: 7311098288231370287}
+  rightHandFireOrbitSphere: {fileID: 4415906885069768037}
 --- !u!1 &7312121489448639951
 GameObject:
   m_ObjectHideFlags: 0
