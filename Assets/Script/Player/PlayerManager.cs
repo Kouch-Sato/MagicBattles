@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public int maxHP = 1000;
-    int HP;
+    public int HP;
     public float maxMP = 100.0f;
     float MP;
     public bool isDie;
@@ -52,7 +52,7 @@ public class PlayerManager : MonoBehaviour
 
         if (MP < maxMP)
         {
-            MP += 0.1f;
+            MP += 0.5f;
             playerUIManager.MPSlider.value = MP;
         }
 
