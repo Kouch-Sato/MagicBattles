@@ -6,6 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     public int maxHP;
     int HP;
+    private float timeElapsedForTriggerStayAttack = 0;
 
     bool isDie = false;
 
@@ -20,14 +21,8 @@ public class EnemyManager : MonoBehaviour
         ingameSceneManager = GameObject.Find("IngameSceneManager");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        Debug.Log("onTrigger");
         PlayerDamager damager = other.GetComponent<PlayerDamager>();
         if (damager)
         {
@@ -35,12 +30,17 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other) {
-        Debug.Log("onExit");
-        PlayerDamager damager = other.GetComponent<PlayerDamager>();
-        if (damager || damager.onExitDamage)
+    private void OnTriggerStay(Collider other)
+    {    
+        timeElapsedForTriggerStayAttack += Time.deltaTime;
+        if (timeElapsedForTriggerStayAttack > 0.5f)
         {
-            GetDamage(damager.damage);
+            PlayerDamager damager = other.GetComponent<PlayerDamager>();
+            if (damager || damager.onStayDamage)
+            {
+                GetDamage(damager.damage);
+            }
+            timeElapsedForTriggerStayAttack = 0;
         }
     }
 

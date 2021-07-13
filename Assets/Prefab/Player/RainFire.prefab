@@ -4756,9 +4756,6 @@ GameObject:
   - component: {fileID: 19867150}
   - component: {fileID: 19924926}
   - component: {fileID: 6589056829912539628}
-  - component: {fileID: 8482660727437490311}
-  - component: {fileID: 3052018860839723018}
-  - component: {fileID: 6504161735443736018}
   - component: {fileID: 7305230186172027961}
   - component: {fileID: 3001547186234581266}
   - component: {fileID: 661459931139295201}
@@ -4778,7 +4775,7 @@ Transform:
   m_GameObject: {fileID: 138484}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 467906}
   - {fileID: 5534064856543140422}
@@ -9623,50 +9620,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 5
-  m_Height: 10
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 3}
---- !u!136 &8482660727437490311
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138484}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 4
-  m_Height: 10
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 3}
---- !u!136 &3052018860839723018
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138484}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 3
-  m_Height: 10
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 3}
---- !u!136 &6504161735443736018
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138484}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 2
-  m_Height: 10
+  m_Radius: 5.5
+  m_Height: 15
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 3}
 --- !u!114 &7305230186172027961
@@ -9681,8 +9636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8c4186c4e4f1944b0d5cf70cafa6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
-  onExitDamage: 1
+  damage: 50
+  onStayDamage: 1
 --- !u!54 &3001547186234581266
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -47870,7 +47825,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3303436554995142298}
-  m_LocalRotation: {x: 0.92387956, y: -0.38268343, z: 0, w: 0}
+  m_LocalRotation: {x: 0.9659258, y: -0.2588191, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -47879,7 +47834,7 @@ Transform:
   - {fileID: 5350220390077899362}
   m_Father: {fileID: 425546}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 45}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 30}
 --- !u!198 &9142010893306315111
 ParticleSystem:
   m_ObjectHideFlags: 0
