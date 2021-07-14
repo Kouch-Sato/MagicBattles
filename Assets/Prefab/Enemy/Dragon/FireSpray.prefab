@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 19957796}
   - component: {fileID: 19898874}
   - component: {fileID: 2389067726341561981}
+  - component: {fileID: 10516151365884875}
   m_Layer: 0
   m_Name: FireSpray
   m_TagString: Untagged
@@ -4744,6 +4745,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7836677, y: 1.0444331, z: 11.192602}
   m_Center: {x: 0.047989905, y: 0.31154075, z: 6.4319754}
+--- !u!114 &10516151365884875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d03bfcd76d95473280b757e3784f5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0
