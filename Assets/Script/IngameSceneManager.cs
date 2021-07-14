@@ -25,16 +25,19 @@ public class IngameSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemyCount <= 0 && !gameFinished)
+        if (!gameFinished)
         {
-            ClearStage();
-            Invoke("LoadLobbyScene", 5.0f);
-        }
+            if (enemyCount <= 0)
+            {
+                ClearStage();
+                Invoke("LoadLobbyScene", 5.0f);
+            }
 
-        if (isPlayerDie && !gameFinished)
-        {
-            FailStage();
-            Invoke("LoadLobbyScene", 3.0f);
+            if (isPlayerDie)
+            {
+                FailStage();
+                Invoke("LoadLobbyScene", 5.0f);
+            }
         }
     }
 

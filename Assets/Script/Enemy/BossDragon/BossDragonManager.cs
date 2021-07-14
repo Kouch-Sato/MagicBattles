@@ -7,6 +7,7 @@ public class BossDragonManager : MonoBehaviour
 {
     public GameObject magicSprayPrefab;
     public GameObject head;
+    GameObject player;
     Transform target;
     Animator animator;
     GameObject magicGameObject;
@@ -15,13 +16,13 @@ public class BossDragonManager : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        target = player.transform;
         this.transform.LookAt(target.position);
         distance = DirectionToPlayer().magnitude;
         Debug.Log(distance);
