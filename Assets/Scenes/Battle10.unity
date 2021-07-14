@@ -2607,7 +2607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6267408119278494583, guid: a81b36acee284ff48a373cfdd5dcde3e, type: 3}
       propertyPath: stageLevel
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8158212311229184863, guid: a81b36acee284ff48a373cfdd5dcde3e, type: 3}
       propertyPath: m_Name
