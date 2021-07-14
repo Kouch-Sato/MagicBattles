@@ -12,11 +12,13 @@ public class EnemyManager : MonoBehaviour
 
     Animator animator;
     GameObject ingameSceneManager;
+    public EnemyUIManager enemyUIManager;
 
     // Start is called before the first frame update
     void Start()
     {
         HP = maxHP;
+        enemyUIManager.Init(this);
         animator = GetComponent<Animator>();
         ingameSceneManager = GameObject.Find("IngameSceneManager");
     }
@@ -53,6 +55,7 @@ public class EnemyManager : MonoBehaviour
 
         animator.SetTrigger("GetHit");
         HP -= damage;
+        enemyUIManager.GetDamage(HP);
 
         if ( HP <= 0 )
         {
