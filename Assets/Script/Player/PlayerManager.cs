@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     public Transform leftControllerAnchor;
     public Transform rightControllerAnchor;
     public GameObject rightHandFireOrbitSphere;
+    public Transform PlayerSight;
     private OVRInput.Controller leftCon;
     private OVRInput.Controller rightCon;
     private bool holdMissile = false;
@@ -41,21 +42,19 @@ public class PlayerManager : MonoBehaviour
 
         if (holdMissile)
         {
-            OVRInput.SetControllerVibration(0.3f, 0.3f, rightCon);
-        }
-        
-        if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger) && holdMissile)
-        {
-            MissileAttack(rightControllerAnchor);
-            holdMissile = false;
-            rightHandFireOrbitSphere.SetActive(false);
-            StartCoroutine (MagicReleaseVibration());
-
-            IEnumerator MagicReleaseVibration()
+            if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
             {
-                OVRInput.SetControllerVibration(1, 1, rightCon);
-                yield return new WaitForSeconds (0.2f);
-                OVRInput.SetControllerVibration(0, 0, rightCon);
+                MissileAttack(rightControllerAnchor);
+                holdMissile = false;
+                rightHandFireOrbitSphere.SetActive(false);
+                StartCoroutine(MagicReleaseVibration());
+
+                IEnumerator MagicReleaseVibration()
+                {
+                    OVRInput.SetControllerVibration(1, 1, rightCon);
+                    yield return new WaitForSeconds(0.2f);
+                    OVRInput.SetControllerVibration(0, 0, rightCon);
+                }
             }
         }
 
@@ -102,7 +101,7 @@ public class PlayerManager : MonoBehaviour
         HP -= damage;
         playerUIManager.GetDamage(HP);
 
-        if ( HP <= 0 )
+        if (HP <= 0)
         {
             HP = 0;
             Die();
@@ -118,8 +117,8 @@ public class PlayerManager : MonoBehaviour
     private bool HoldMissileTrigger()
     {
         bool trigger = OVRInput.Get(OVRInput.RawButton.RIndexTrigger);
-        var rAngularAcc = OVRInput.GetLocalControllerAngularAcceleration(rightCon);
-        if (rAngularAcc.magnitude >= 200 && trigger)
+        var rightAngularAcc = OVRInput.GetLocalControllerAngularAcceleration(rightCon);
+        if (rightAngularAcc.magnitude >= 200 && trigger)
         {
             return true;
         }
@@ -131,11 +130,23 @@ public class PlayerManager : MonoBehaviour
         float MPAmount = 20.0f;
         if (MP >= MPAmount)
         {
+            OVRInput.SetControllerVibration(0.3f, 0.3f, rightCon);
             MP -= MPAmount;
             playerUIManager.UpdateMP(MP);
 
             GameObject missileObject = Instantiate(missilePrefab, controllerAnchor.position, controllerAnchor.rotation) as GameObject;
-            missileObject.GetComponent<Rigidbody>().AddForce(missileObject.transform.forward * 1000);
+
+            Vector3 rightAcc = OVRInput.GetLocalControllerAcceleration(rightCon);
+            if (rightAcc.magnitude > 2)
+            {
+                missileObject.GetComponent<Rigidbody>().AddForce(PlayerSight.transform.forward * 1000);
+            }
+            else
+            {
+                missileObject.GetComponent<Rigidbody>().useGravity = true;
+            }
+            OVRInput.SetControllerVibration(0.3f, 0, rightCon);
+
             Destroy(missileObject, 4.0f);
         }
     }
@@ -146,7 +157,7 @@ public class PlayerManager : MonoBehaviour
         bool lTrigger = OVRInput.Get(OVRInput.RawButton.LIndexTrigger);
         Vector3 rightVelocity = OVRInput.GetLocalControllerVelocity(rightCon);
         Vector3 leftVelocity = OVRInput.GetLocalControllerVelocity(leftCon);
-        
+
         if (rTrigger && lTrigger)
         {
             if (rightVelocity.y <= -2 && leftVelocity.y <= -2)
@@ -158,7 +169,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void RainAttack()
-    {   
+    {
         float MPAmount = 51;
         if (MP < MPAmount)
         {
@@ -188,7 +199,7 @@ public class PlayerManager : MonoBehaviour
 
         for (int i=0; i < positionList.Count; i++)
         {
-            GameObject rainObject = Instantiate(rainPrefab, positionList[i] - positionYAxisOffset, Quaternion.Euler(-90, 0, 0)) as GameObject; 
+            GameObject rainObject = Instantiate(rainPrefab, positionList[i] - positionYAxisOffset, Quaternion.Euler(-90, 0, 0)) as GameObject;
             Destroy(rainObject, 4.0f);
         }
     }
