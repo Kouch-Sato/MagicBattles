@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         HP = maxHP;
-        MP = maxMP;
+        MP = 0.0f;
         playerUIManager.Init(this);
         isDie = false;
         rightCon = OVRInput.Controller.RTouch;
@@ -127,28 +127,22 @@ public class PlayerManager : MonoBehaviour
 
     private void MissileAttack(Transform controllerAnchor)
     {
-        float MPAmount = 20.0f;
-        if (MP >= MPAmount)
+        OVRInput.SetControllerVibration(0.3f, 0.3f, rightCon);
+
+        GameObject missileObject = Instantiate(missilePrefab, controllerAnchor.position, controllerAnchor.rotation) as GameObject;
+
+        Vector3 rightAcc = OVRInput.GetLocalControllerAcceleration(rightCon);
+        if (rightAcc.magnitude > 2)
         {
-            OVRInput.SetControllerVibration(0.3f, 0.3f, rightCon);
-            MP -= MPAmount;
-            playerUIManager.UpdateMP(MP);
-
-            GameObject missileObject = Instantiate(missilePrefab, controllerAnchor.position, controllerAnchor.rotation) as GameObject;
-
-            Vector3 rightAcc = OVRInput.GetLocalControllerAcceleration(rightCon);
-            if (rightAcc.magnitude > 2)
-            {
-                missileObject.GetComponent<Rigidbody>().AddForce(PlayerSight.transform.forward * 1000);
-            }
-            else
-            {
-                missileObject.GetComponent<Rigidbody>().useGravity = true;
-            }
-            OVRInput.SetControllerVibration(0.3f, 0, rightCon);
-
-            Destroy(missileObject, 4.0f);
+            missileObject.GetComponent<Rigidbody>().AddForce(PlayerSight.transform.forward * 1000);
         }
+        else
+        {
+            missileObject.GetComponent<Rigidbody>().useGravity = true;
+        }
+        OVRInput.SetControllerVibration(0.3f, 0, rightCon);
+
+        Destroy(missileObject, 4.0f);
     }
 
     private bool RainAttackTrigger()
