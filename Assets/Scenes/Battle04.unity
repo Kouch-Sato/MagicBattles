@@ -4240,11 +4240,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7244666979781911279, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90.85
+      value: 79.2
       objectReference: {fileID: 0}
     - target: {fileID: 7244666979781911279, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.77
+      value: 22.08
       objectReference: {fileID: 0}
     - target: {fileID: 7244666979781911279, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4276,6 +4276,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7244666979781911279, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536379070372586331, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536379070372586331, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5483,11 +5491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7244666979781911279, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 68.3
+      value: 71.22
       objectReference: {fileID: 0}
     - target: {fileID: 7244666979781911279, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.14
+      value: 22.14
       objectReference: {fileID: 0}
     - target: {fileID: 7244666979781911279, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5519,6 +5527,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7244666979781911279, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536379070372586331, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536379070372586331, guid: e21b84d551fe24f3db6cdf119a56a4e3, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5744,6 +5760,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1522251756, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522251756, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5847484307582966168, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
       propertyPath: m_Name
       value: Skeleton (1)
@@ -8631,6 +8655,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1794114936, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794114936, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7312121489448337891, guid: 7457b98b18ff345d8a49742326b13f89, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8747,6 +8779,14 @@ PrefabInstance:
     - target: {fileID: 5970103893725609876, guid: e9c67b50246c4f340b373511d6b2ec8f, type: 3}
       propertyPath: m_Name
       value: Slime (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987662561752789021, guid: e9c67b50246c4f340b373511d6b2ec8f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987662561752789021, guid: e9c67b50246c4f340b373511d6b2ec8f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9c67b50246c4f340b373511d6b2ec8f, type: 3}
@@ -13016,6 +13056,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1522251756, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522251756, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5847484307582966168, guid: cd363cb9ec9e1427381ef308ba659f90, type: 3}
       propertyPath: m_Name
       value: Skeleton
@@ -15872,6 +15920,14 @@ PrefabInstance:
     - target: {fileID: 5970103893725609876, guid: e9c67b50246c4f340b373511d6b2ec8f, type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987662561752789021, guid: e9c67b50246c4f340b373511d6b2ec8f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987662561752789021, guid: e9c67b50246c4f340b373511d6b2ec8f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9c67b50246c4f340b373511d6b2ec8f, type: 3}
