@@ -20191,6 +20191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 10000
+  HP: 0
   maxMP: 100
   isDie: 0
   playerUIManager: {fileID: 9218302655602186522}
@@ -20199,6 +20200,7 @@ MonoBehaviour:
   leftControllerAnchor: {fileID: 7311381334985236577}
   rightControllerAnchor: {fileID: 7311098288231370287}
   rightHandFireOrbitSphere: {fileID: 4415906885069768037}
+  PlayerSight: {fileID: 7312121489448337897}
 --- !u!1 &7312121489448639951
 GameObject:
   m_ObjectHideFlags: 0
