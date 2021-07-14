@@ -29,14 +29,14 @@ public class IngameSceneManager : MonoBehaviour
         {
             if (enemyCount <= 0)
             {
-                ClearStage();
-                Invoke("LoadLobbyScene", 5.0f);
+                Invoke("ClearStage", 3.0f);
+                Invoke("LoadLobbyScene", 8.0f);
             }
 
             if (isPlayerDie)
             {
-                FailStage();
-                Invoke("LoadLobbyScene", 5.0f);
+                Invoke("FailStage", 3.0f);
+                Invoke("LoadLobbyScene", 8.0f);
             }
         }
     }
