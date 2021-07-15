@@ -23,6 +23,10 @@ public class LobbySceneManager : MonoBehaviour
     public void OnClickCompleteButton()
     {
         PlayerPrefs.SetInt("PLAYER_LEVEL", 10);
+        for (int i=1; i <= 10; i++)
+        {
+            PlayerPrefs.SetInt($"SCORE_{i}", 3);
+        }
         PlayerPrefs.Save();
         SceneManager.LoadScene("Lobby");
     }
