@@ -77,7 +77,7 @@ public class PlayerManager : MonoBehaviour
 
         if (MP < maxMP)
         {
-            MP += 0.5f;
+            MP += 0.1f;
             playerUIManager.MPSlider.value = MP;
         }
 
