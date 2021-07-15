@@ -82,15 +82,15 @@ public class IngameSceneManager : MonoBehaviour
     int CalculateResultScore(int clearTime)
     {
         int resultScore = 0;
-        if (clearTime < 20)
+        if (clearTime < 30)
         {
             resultScore = 3;
         }
-        else if (clearTime < 40)
+        else if (clearTime < 60)
         {
             resultScore = 2;
         }
-        else if (clearTime < 60)
+        else if (clearTime < 90)
         {
             resultScore = 1;
         }
