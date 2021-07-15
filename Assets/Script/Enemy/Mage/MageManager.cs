@@ -29,7 +29,7 @@ public class MageManager : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         timeOutForAttack = new System.Random().Next(6, 12);
         timeOutForMove = new System.Random().Next(2, 5);
-        timeOutForShield = new System.Random().Next(7, 11);
+        timeOutForShield = new System.Random().Next(10, 15);
         weaponSize = weaponStaff.GetComponent<SkinnedMeshRenderer>().bounds.size;
     }
 
@@ -67,7 +67,7 @@ public class MageManager : MonoBehaviour
     {
         // 魔法の発射位置が、ステッキの上部に来るように調整
         var weaponOffset = new Vector3(0.0f, weaponSize.y / 3.0f, 0.0f);
-        
+
         GameObject magicGameObject = Instantiate(missilePrefab, weaponTransform.position + weaponOffset, weaponTransform.rotation) as GameObject;
         magicGameObject.transform.LookAt(target.position);
         magicGameObject.GetComponent<Rigidbody>().AddForce(magicGameObject.transform.forward * 2000);
@@ -76,14 +76,14 @@ public class MageManager : MonoBehaviour
     public void Shield()
     {
         GameObject shieldObject = Instantiate(shieldPrefab, transform.position, Quaternion.Euler(-90, 0, 0));
-        Destroy(shieldObject, 8.0f);
+        Destroy(shieldObject, 3.0f);
     }
 
     private void RandomMove()
     {
         string[] directions = new string[] { "forward", "backward", "right", "left" };
         string direction = directions[new System.Random().Next(0, directions.Length)];
-        
+
         switch (direction)
         {
             // transform.forward(right)等は、現在のgameobjectの向きベクトルに対して、指定した方向を示す大きさ1のVector3

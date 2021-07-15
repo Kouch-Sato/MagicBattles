@@ -48,9 +48,8 @@ public class IngameSceneManager : MonoBehaviour
 
         int currentPlayerLevel = PlayerPrefs.GetInt("PLAYER_LEVEL", 0);
         int currentStageScore = PlayerPrefs.GetInt($"SCORE_{stageLevel}", 0);
-        int playerLastHP = GameObject.FindWithTag("Player").GetComponent<PlayerManager>().HP;
         float clearTime = Time.time - startTime;
-        int resultScore = CalculateResultScore(playerLastHP, (int)clearTime);
+        int resultScore = CalculateResultScore((int)clearTime);
 
         if (stageLevel > currentPlayerLevel)
         {
@@ -80,7 +79,7 @@ public class IngameSceneManager : MonoBehaviour
         SceneManager.LoadScene("Lobby");
     }
 
-    int CalculateResultScore(int playerLastHP, int clearTime)
+    int CalculateResultScore(int clearTime)
     {
         int resultScore = 0;
         if (clearTime < 30)
@@ -96,20 +95,6 @@ public class IngameSceneManager : MonoBehaviour
             resultScore = 1;
         }
 
-        int penaltyScore = 0;
-        if (playerLastHP < 1000)
-        {
-            penaltyScore = 1;
-        }
-        if (playerLastHP < 600)
-        {
-            penaltyScore = 2;
-        }
-        if (playerLastHP < 300)
-        {
-            penaltyScore = 3;
-        }
-
-        return Math.Max(resultScore - penaltyScore, 0);
+        return resultScore;
     }
 }
