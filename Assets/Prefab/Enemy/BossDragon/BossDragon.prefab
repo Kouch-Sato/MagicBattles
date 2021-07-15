@@ -2146,7 +2146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a21b63729c64fdabcac6b679f10698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5000
+  maxHP: 10000
   enemyUIManager: {fileID: 95809746314086283}
 --- !u!1 &4590687426928864396
 GameObject:
