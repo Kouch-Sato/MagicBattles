@@ -14,11 +14,13 @@ public class PlayerManager : MonoBehaviour
     public GameObject rainPrefab;
     public Transform leftControllerAnchor;
     public Transform rightControllerAnchor;
+    public GameObject leftHandFireOrbitSphere;
     public GameObject rightHandFireOrbitSphere;
     public Transform PlayerSight;
     private OVRInput.Controller leftCon;
     private OVRInput.Controller rightCon;
-    private bool holdMissile = false;
+    private bool leftHoldMissile = false;
+    private bool rightHoldMissile = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,27 +36,35 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HoldMissileTrigger())
+        if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger))
         {
-            holdMissile = true;
+            leftHoldMissile = true;
+            leftHandFireOrbitSphere.SetActive(true);
+        }
+
+        if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
+        {
+            rightHoldMissile = true;
             rightHandFireOrbitSphere.SetActive(true);
         }
 
-        if (holdMissile)
+        if (leftHoldMissile)
+        {
+            if (OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger))
+            {
+                MissileAttack(leftControllerAnchor, leftCon);
+                leftHoldMissile = false;
+                leftHandFireOrbitSphere.SetActive(false);
+            }
+        }
+
+        if (rightHoldMissile)
         {
             if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
             {
-                MissileAttack(rightControllerAnchor);
-                holdMissile = false;
+                MissileAttack(rightControllerAnchor, rightCon);
+                rightHoldMissile = false;
                 rightHandFireOrbitSphere.SetActive(false);
-                StartCoroutine(MagicReleaseVibration());
-
-                IEnumerator MagicReleaseVibration()
-                {
-                    OVRInput.SetControllerVibration(1, 1, rightCon);
-                    yield return new WaitForSeconds(0.2f);
-                    OVRInput.SetControllerVibration(0, 0, rightCon);
-                }
             }
         }
 
@@ -64,11 +74,6 @@ public class PlayerManager : MonoBehaviour
         }
 
         // START: PCデバッグ用
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            MissileAttack(rightControllerAnchor);
-        }
-
         if (Input.GetKeyDown(KeyCode.K))
         {
             RainAttack();
@@ -114,25 +119,20 @@ public class PlayerManager : MonoBehaviour
         GameObject.Find("IngameSceneManager").GetComponent<IngameSceneManager>().isPlayerDie = isDie;
     }
 
-    private bool HoldMissileTrigger()
+    private void MissileAttack(Transform controllerAnchor, OVRInput.Controller controller)
     {
-        bool trigger = OVRInput.Get(OVRInput.RawButton.RIndexTrigger);
-        var rightAngularAcc = OVRInput.GetLocalControllerAngularAcceleration(rightCon);
-        if (rightAngularAcc.magnitude >= 200 && trigger)
+        StartCoroutine(MagicReleaseVibration());
+        IEnumerator MagicReleaseVibration()
         {
-            return true;
+            OVRInput.SetControllerVibration(1, 1, controller);
+            yield return new WaitForSeconds(0.2f);
+            OVRInput.SetControllerVibration(0, 0, controller);
         }
-        return false;
-    }
-
-    private void MissileAttack(Transform controllerAnchor)
-    {
-        OVRInput.SetControllerVibration(0.3f, 0.3f, rightCon);
 
         GameObject missileObject = Instantiate(missilePrefab, controllerAnchor.position, controllerAnchor.rotation) as GameObject;
 
-        Vector3 rightAcc = OVRInput.GetLocalControllerAcceleration(rightCon);
-        if (rightAcc.magnitude > 2)
+        Vector3 controllerAcc = OVRInput.GetLocalControllerAcceleration(controller);
+        if (controllerAcc.magnitude > 2)
         {
             missileObject.GetComponent<Rigidbody>().AddForce(PlayerSight.transform.forward * 1000);
         }
@@ -140,7 +140,6 @@ public class PlayerManager : MonoBehaviour
         {
             missileObject.GetComponent<Rigidbody>().useGravity = true;
         }
-        OVRInput.SetControllerVibration(0.3f, 0, rightCon);
 
         Destroy(missileObject, 4.0f);
     }
@@ -164,7 +163,7 @@ public class PlayerManager : MonoBehaviour
 
     private void RainAttack()
     {
-        float MPAmount = 51;
+        float MPAmount = 100;
         if (MP < MPAmount)
         {
             return;
