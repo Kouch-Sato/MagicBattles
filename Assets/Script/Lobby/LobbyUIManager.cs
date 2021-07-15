@@ -15,9 +15,6 @@ public class LobbyUIManager : MonoBehaviour
         int playerLevel = PlayerPrefs.GetInt("PLAYER_LEVEL", 0);
 
         SetLobbyStageButton(playerLevel);
-
-        GameObject playerLevelText = GameObject.Find("PlayerLevelText");
-        playerLevelText.GetComponent<Text>().text = "レベル: " + playerLevel.ToString();
     }
 
     void SetLobbyStageButton(int playerLevel)
@@ -28,7 +25,20 @@ public class LobbyUIManager : MonoBehaviour
             int targetStageLevel = button.GetComponent<LobbyButtonManager>().targetStageLevel;
             int stageScore = PlayerPrefs.GetInt($"SCORE_{targetStageLevel}", 0);
 
-            if (targetStageLevel <= playerLevel)
+            if (targetStageLevel == 11)
+            {
+                if (CanUnlockSecretStage())
+                {
+                    GameObject.Find("SpecialStageButton").SetActive(true);
+                    GameObject.Find("SpecialStageDummy").SetActive(false);
+                }
+                else
+                {
+                    GameObject.Find("SpecialStageButton").SetActive(false);
+                    GameObject.Find("SpecialStageDummy").SetActive(true);
+                }
+            }
+            else if (targetStageLevel <= playerLevel)
             {
                 button.transform.Find($"Star_{stageScore}").gameObject.SetActive(true);
             }
@@ -45,5 +55,17 @@ public class LobbyUIManager : MonoBehaviour
                 button.transform.Find("Lock").gameObject.SetActive(true);
             }
         }
+    }
+
+    bool CanUnlockSecretStage()
+    {
+        for (int i=1; i <= 10; i++)
+        {
+            if (PlayerPrefs.GetInt($"SCORE_{i}", 0) != 3)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
